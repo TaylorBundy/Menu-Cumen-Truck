@@ -133,3 +133,9 @@ footer a:hover {
     width: 20px;
     height: 20px;
 }
+
+@media only screen and (max-width: 400px)  {
+    .menu-section {
+        background-image: none;
+    }
+}
