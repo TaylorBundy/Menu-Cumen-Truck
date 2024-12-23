@@ -13,7 +13,8 @@ body {
 
 header {
     /* background-color: #f8b400;    */
-    background-color: #ff991f; 
+    /* background-color: #ff991f; */
+    background-image: radial-gradient(#ffb931, #ff6100);
     /* background-image: url('Imagenes/logo-transparente.webp'); */
     /* background-size: contain; */
     /* background-repeat: no-repeat; */
@@ -45,6 +46,7 @@ header h1 {
     font-size: 2.5rem;
     position: relative;
     z-index: 2;
+    top: -20px;
     -webkit-text-stroke: 1px #333;
     text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
 }
@@ -53,7 +55,10 @@ header p {
     margin-top: 0.5rem;
     position: relative;
     z-index: 3;
-    -webkit-text-stroke: 0.5px #333;
+    font-weight: bold;
+    top: -9px;
+    /* -webkit-text-stroke: 0.5px #333; */
+    -webkit-text-stroke: 0.5px #7BA842;
     text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
 }
 
@@ -81,30 +86,80 @@ main {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
     background-color: #fff;
+    position: relative;
 }
 
 .menu-item img {
     width: 100%;
-    height: 200px;
+    /* height: 200px; */
+    height: auto;
     /* object-fit: cover; */
     /* background-size: cover; */
-    
+
+}
+
+.menu-item .FondoImg {
+    display: none;
+}
+
+.Burguer {
+    background-image: url('Imagenes/burguer-completa.webp');
+}
+
+.Img1 {
+    position: relative;
+    display: none;
+}
+
+.Img2 {
+    position: relative;
+    display: none;
 }
 
 .menu-item h3 {
-    margin: 0.5rem 0;
+    /* margin: 0.5rem 0; */
+    text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 30px;
 }
 
 .menu-item p {
     padding: 0 1rem;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 75px;
 }
 
 .menu-item .price {
     font-size: 1.2rem;
     font-weight: bold;
     color: #f8b400;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
+    text-shadow: 2px 2px 2px rgba(167, 121, 0, 1);
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.nodo-img-item {
+    position: absolute;
+    width: 100%;
+    /* height: 100px; */
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    /* opacity: 0.3; */
+    top: 8px;
+    /* height: 200px; */
+}
+
+.nodo-img-item img {
+    position: relative;
+    width: 20%;
+    /* animation: heartbeat 1.5s infinite; */
+    animation: heartbeat 1.5s ease-in-out 10;
 }
 
 footer {
@@ -134,8 +189,129 @@ footer a:hover {
     height: 20px;
 }
 
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.2);
+    }
+    60% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 @media only screen and (max-width: 400px)  {
+    header {
+        border-radius: 8px;
+        margin: 0 5px 0 5px;
+    }
+
+    header p {
+        top: -9px;
+    }
+
     .menu-section {
         background-image: none;
+        /* padding: 10px 5px 10px 5px; */
+        padding: 5px;
+        gap: 5px;
+    }
+
+    .menu-item {
+        background-image: radial-gradient(#ffb931, #ff6100);
+        /* background-image: linear-gradient(90deg, #ffb931 0%, #ff6100 100%); */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* .menu-item .price {
+        margin: 0;
+        border: 1px solid;
+    } */
+
+    .menu-item h3 {
+        color: #c1ff72;
+        -webkit-text-stroke: 1px #7BA842;
+        text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+        /* border: 1px solid #f8b400; */
+        /* margin: 0; */
+    }
+
+    .menu-item p {
+        font-weight: bold;
+        text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+        height: auto;
+        /* border: 1px solid #f8b400; */
+        /* margin: 0; */
+    }
+
+    .menu-item .price, .menu-item h3, .menu-item p {
+        border: 1px solid #f8b400;
+        margin: 0;
+    }
+
+    .menu-item img {
+        position: relative;
+        height: auto;
+        opacity: 0.8;
+        display: block;
+    }
+
+    .menu-item .Burguer, .menu-item .Cordero, .menu-item .Choritaco, .menu-item .Trucha,
+    .menu-item .Veggie, .menu-item .Pancho, .menu-item .Fritas, .menu-item .Pollo{
+        display: none;
+    }
+
+    /* .menu-item .Choritaco {
+        display: none;
+    }
+
+    .menu-item .Trucha {
+        display: none;
+    }
+
+    .menu-item .Veggie {
+        display: none;
+    }
+
+    .menu-item .Pancho {
+        display: none;
+    } */
+
+    .menu-item .FondoImg {
+        position: relative;
+        opacity: 1;
+        width: 348px;
+        height: 315px;
+        opacity: 0.3;
+        /* display: none; */
+        /* border: 1px solid blue; */
+    }
+
+    .menu-item .Img1 {
+        position: absolute;
+        opacity: 1;
+        width: 348px;
+        height: 348px;
+        /* display: none; */
+        /* border: 1px solid blue; */
+    }
+
+    /* .menu-item .Img2 { */
+        /* opacity: 0.3; */
+        /* display: none; */
+    /* } */
+
+    .menu-item .Img2 {
+        position: absolute;
+        opacity: 1;
+        width: 348px;
+        height: 348px;
+        /* display: none; */
     }
 }
