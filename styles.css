@@ -75,7 +75,7 @@ header p {
     background: none;
     border: none;
     color: white;
-    font-size: 24px;
+    font-size: 30px;
     cursor: pointer;
     z-index: 2;
 }
@@ -323,8 +323,8 @@ footer a:hover {
     }
 
     .menu-container {
-        margin-right: 5px;
-        top: -50px;
+        margin-right: 10px;
+        top: -40px;
     }
 
     .menu.active {
@@ -333,7 +333,7 @@ footer a:hover {
     }
 
     .menu a {
-        font-size: 12px;
+        font-size: 14px;
         padding: 5px;
         /* right: 5px; */
     }
