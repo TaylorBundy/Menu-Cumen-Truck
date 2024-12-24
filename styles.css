@@ -12,6 +12,7 @@ body {
 }
 
 header {
+    height: 132px;
     /* background-color: #f8b400;    */
     /* background-color: #ff991f; */
     background-image: radial-gradient(#ffb931, #ff6100);
@@ -56,10 +57,85 @@ header p {
     position: relative;
     z-index: 3;
     font-weight: bold;
-    top: -9px;
+    /* top: -9px; */
+    top: 57px;
     /* -webkit-text-stroke: 0.5px #333; */
     -webkit-text-stroke: 0.5px #7BA842;
     text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+.menu-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Estilo del menú desplegable */
+.menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    width: 200px;
+    z-index: 1;
+    /* opacity: 0; */
+    /* transition: opacity 0.3s ease, visibility 0.3s ease; */
+    /* visibility: hidden; */
+}
+
+/* Mostrar menú al pasar el mouse */
+/* .menu-container:hover .menu  {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+} */
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    border-bottom: 1px solid #444;
+}
+
+.menu li:last-child {
+    border-bottom: none;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.menu a:hover {
+    background-color: #555;
+}
+
+/* Mostrar menú cuando esté activo */
+.menu.active {
+    display: flex;
+}
+
+.menu.inactive {
+    display: none;
 }
 
 main {
@@ -185,8 +261,10 @@ footer a:hover {
 } */
 
 .ImgSocial {
-    width: 20px;
-    height: 20px;
+    /* width: 20px; */
+    width: 30px;
+    /* height: 20px; */
+    height: 30px;
 }
 
 @keyframes heartbeat {
@@ -204,14 +282,60 @@ footer a:hover {
     }
 }
 
-@media only screen and (max-width: 400px)  {
+@keyframes heartbeat2 {
+    0% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    30% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+    60% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+}
+
+@media only screen and (min-width: 360px) and (max-width: 501px) and (orientation: portrait) {
     header {
+        /* width: 350px; */
+        height: 132px;
         border-radius: 8px;
         margin: 0 5px 0 5px;
+        padding: 1rem 0;
     }
 
     header p {
-        top: -9px;
+        /* top: -9px; */
+        top: 57px;
+    }
+
+    .logo {
+        /* width: 350px; */
+        height: 100px;
+        opacity: 0.8;
+        animation: heartbeat2 1.5s ease-in-out 5;
+    }
+
+    .menu-container {
+        margin-right: 5px;
+        top: -50px;
+    }
+
+    .menu.active {
+        opacity: 0.8;
+        width: 30%;
+    }
+
+    .menu a {
+        font-size: 12px;
+        padding: 5px;
+        /* right: 5px; */
     }
 
     .menu-section {
@@ -286,9 +410,12 @@ footer a:hover {
     .menu-item .FondoImg {
         position: relative;
         opacity: 1;
-        width: 348px;
+        /* width: 348px; */
+        width: 100%;
         height: 315px;
         opacity: 0.3;
+        margin-left: auto;
+        margin-right: auto;
         /* display: none; */
         /* border: 1px solid blue; */
     }
@@ -298,6 +425,11 @@ footer a:hover {
         opacity: 1;
         width: 348px;
         height: 348px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        /* margin-left: auto; */
+        /* margin-right: auto; */
         /* display: none; */
         /* border: 1px solid blue; */
     }
@@ -312,6 +444,17 @@ footer a:hover {
         opacity: 1;
         width: 348px;
         height: 348px;
+        /* height: 100%; */
+        left: 0;
+        right: 0;
+        margin: auto;
+        /* margin-left: auto; */
+        /* margin-right: auto; */
         /* display: none; */
+    }
+
+    footer {
+        border-radius: 8px;
+        margin: 0 5px 0 5px;
     }
 }
