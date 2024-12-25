@@ -118,13 +118,15 @@ let scrolll = '';
 const inicios = 85;
 const target = 20;
 let final = '';
-const TargetHeight = document.documentElement.offsetHeight - screen.height;
+//const TargetHeight = document.documentElement.offsetHeight - screen.height;
+const TargetHeight = document.documentElement.offsetHeight - window.innerHeight;
 
 // When the user scrolls down 20px from the top of the document, show the button
 //window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrolll = this.scrollY;
     mybutton.style.display = "block";
     //const scrollPosition = window.scrollY + window.innerHeight;
     //const bottomPosition = document.documentElement.scrollHeight;
@@ -132,7 +134,7 @@ function scrollFunction() {
     //var b = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     //console.log(a);
     //console.log(document.documentElement.clientHeight);
-    scrolll = this.scrollY;
+    //scrolll = this.scrollY;
     //a = document.body.offsetHeight || document.documentElement.offsetHeight;
     //b = a - screen.height;    
         
@@ -140,10 +142,15 @@ function scrollFunction() {
     //if (scrollPosition >= bottomPosition) {
     //if (b == scrolll) {
         topp.style.bottom = 85 + 'px';        
-    } else if (scrolll <= Math.round(document.documentElement.scrollHeight) - window.innerHeight) {
+    } else if (scrolll <= Math.max(document.documentElement.scrollHeight) - window.innerHeight) {
         final = inicios - (TargetHeight - scrolll);
-        //console.log(Math.max(20,final));
+        if (final > target && final <= inicios) {
+        console.log(Math.max(target,final) + 'px');
         topp.style.bottom = Math.max(target,final) + 'px';
+        } else {
+            topp.style.bottom = 20 + 'px';
+            console.log('llegamos a 20');
+        }
     }
   } else {
     mybutton.style.display = "none";
@@ -151,7 +158,8 @@ function scrollFunction() {
 }
 
 function isBottomOfPage() {
-    return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight);
+    //return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight);
+    return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight;
 }
 
 // When the user clicks on the button, scroll to the top of the document
