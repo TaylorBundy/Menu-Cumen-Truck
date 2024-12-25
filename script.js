@@ -119,7 +119,8 @@ function scrollFunction() {
     //console.log(a);
     //console.log(document.documentElement.clientHeight);
     scrolll = this.scrollY;
-    a = document.body.offsetHeight - screen.height;    
+    a = document.body.offsetHeight - screen.height;   
+    alert(screen.height); 
     if (a === scrolll) {        
         topp.style.bottom = 105 + 'px';        
     } else {
