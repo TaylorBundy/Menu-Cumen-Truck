@@ -90,7 +90,7 @@ function cargarImg(){
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
 
-if (plataforma.includes('Win')) {    
+if (plataforma.includes('Win')) {
     document.addEventListener('DOMContentLoaded', () => {
         //const menuToggle = document.querySelector('.menu-toggle');
         //const menu = document.querySelector('.menu');
@@ -106,7 +106,8 @@ if (plataforma.includes('Win')) {
 
 const mybutton = document.getElementById("myBtn");
 const topp = document.querySelector('.top');
-let a = 0;
+let a = '';
+let b = '';
 let scrolll = '';
 // When the user scrolls down 20px from the top of the document, show the button
 //window.onscroll = function() {scrollFunction()};
@@ -114,15 +115,23 @@ let scrolll = '';
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const bottomPosition = document.documentElement.scrollHeight;
     //var a = document.documentElement.scrollTop;
     //var b = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     //console.log(a);
     //console.log(document.documentElement.clientHeight);
     scrolll = this.scrollY;
-    a = document.body.offsetHeight - screen.height;   
-    alert(screen.height); 
-    if (a === scrolll) {        
-        topp.style.bottom = 105 + 'px';        
+    a = document.body.offsetHeight || document.documentElement.offsetHeight;
+    b = a - screen.height;
+    //console.log(document.body.offsetHeight);
+    //console.log(document.documentElement.offsetHeight);
+    //console.log(screen.height);
+    //console.log(scrolll);
+    //console.log(b);
+    if (scrollPosition >= bottomPosition) {
+    //if (b == scrolll) {
+        topp.style.bottom = 105 + 'px';
     } else {
         topp.style.bottom = 20 + 'px';
     }
@@ -140,12 +149,14 @@ function topFunction() {
             top: 0,
             behavior: 'smooth'
         });
+        alert('no');
     } else {
         // Fallback para navegadores más antiguos
         let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
         if (currentScroll > 0) {
             window.requestAnimationFrame(topFunction);
             window.scrollTo(0, currentScroll - currentScroll / 8); // Efecto suave manual
+            alert('si');
         }
     }
 }
