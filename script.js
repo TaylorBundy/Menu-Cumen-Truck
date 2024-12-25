@@ -133,7 +133,7 @@ function scrollFunction() {
     console.log('bottomP: ' + bottomPosition);
     if (isBottomOfPage()) {
         console.log("¡Has llegado al final de la página!");
-        alert(window.innerHeight + window.scrollY);
+        alert(Math.round(document.documentElement.scrollHeight));
         // Acciones personalizadas
     }
     if (isBottomOfPage()) {
