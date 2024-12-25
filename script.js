@@ -19,7 +19,7 @@ const plataforma = navigator.userAgent;
 window.onload = function() {
     cargarImg();
     //console.log(navigator.userAgent);
-    var parser = new UAParser();
+    //var parser = new UAParser();
     //console.log(parser.getResult());
     //alert(parser.getResult().browser.name + ' - ' + parser.getResult().browser.version);
     //alert('width: ' + screen.width + ' - height: ' + screen.height);
@@ -115,40 +115,35 @@ const topp = document.querySelector('.top');
 let a = '';
 let b = '';
 let scrolll = '';
+const inicios = 85;
+const target = 20;
+let final = '';
+const TargetHeight = document.documentElement.offsetHeight - screen.height;
+
 // When the user scrolls down 20px from the top of the document, show the button
 //window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
-    const scrollPosition = window.scrollY + window.innerHeight;
-    const bottomPosition = document.documentElement.scrollHeight;
+    //const scrollPosition = window.scrollY + window.innerHeight;
+    //const bottomPosition = document.documentElement.scrollHeight;
     //var a = document.documentElement.scrollTop;
     //var b = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     //console.log(a);
     //console.log(document.documentElement.clientHeight);
     scrolll = this.scrollY;
-    a = document.body.offsetHeight || document.documentElement.offsetHeight;
-    b = a - screen.height;
-    //console.log(document.body.offsetHeight);
-    //console.log(document.documentElement.offsetHeight);
-    //console.log(screen.height);
-    console.log(scrolll);
-    //console.log(b);
-    //console.log('scrollP: ' + scrollPosition);
-    //console.log('bottomP: ' + bottomPosition);
-    if (isBottomOfPage()) {
-        console.log("¡Has llegado al final de la página!");
-        //alert(Math.round(document.documentElement.scrollHeight));
-        // Acciones personalizadas
-    }
+    //a = document.body.offsetHeight || document.documentElement.offsetHeight;
+    //b = a - screen.height;    
+        
     if (isBottomOfPage()) {
     //if (scrollPosition >= bottomPosition) {
     //if (b == scrolll) {
-        topp.style.bottom = 105 + 'px';
-        console.log("¡Has llegado al final de la página!");
-    } else {
-        topp.style.bottom = 20 + 'px';
+        topp.style.bottom = 85 + 'px';        
+    } else if (scrolll <= Math.round(document.documentElement.scrollHeight) - window.innerHeight) {
+        final = inicios - (TargetHeight - scrolll);
+        //console.log(Math.max(20,final));
+        topp.style.bottom = Math.max(target,final) + 'px';
     }
   } else {
     mybutton.style.display = "none";
@@ -156,7 +151,7 @@ function scrollFunction() {
 }
 
 function isBottomOfPage() {
-    return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight) - 95;
+    return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight);
 }
 
 // When the user clicks on the button, scroll to the top of the document
@@ -177,11 +172,6 @@ function topFunction() {
         }
     }
 }
-
-window.addEventListener("scroll", (event) => {
-    //let scroll = this.scrollY;
-    //console.log(scroll)
-});
 
 function getAndroidVersion() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
