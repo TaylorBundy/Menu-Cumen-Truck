@@ -20,8 +20,8 @@ window.onload = function() {
     cargarImg();
     //console.log(navigator.userAgent);
     var parser = new UAParser();
-    console.log(parser.getResult());
-    alert(parser.getResult().browser.name + ' - ' + parser.getResult().browser.version);
+    //console.log(parser.getResult());
+    //alert(parser.getResult().browser.name + ' - ' + parser.getResult().browser.version);
     //alert('width: ' + screen.width + ' - height: ' + screen.height);
 
 
@@ -133,7 +133,7 @@ function scrollFunction() {
     //console.log(document.body.offsetHeight);
     //console.log(document.documentElement.offsetHeight);
     //console.log(screen.height);
-    //console.log(scrolll);
+    console.log(scrolll);
     //console.log(b);
     //console.log('scrollP: ' + scrollPosition);
     //console.log('bottomP: ' + bottomPosition);
@@ -156,7 +156,7 @@ function scrollFunction() {
 }
 
 function isBottomOfPage() {
-    return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight);
+    return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight) - 95;
 }
 
 // When the user clicks on the button, scroll to the top of the document
