@@ -150,6 +150,7 @@ function topFunction() {
             behavior: 'smooth'
         });
         alert('no');
+        console.log('no');
     } else {
         // Fallback para navegadores más antiguos
         let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
