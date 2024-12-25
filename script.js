@@ -129,15 +129,27 @@ function scrollFunction() {
     //console.log(screen.height);
     //console.log(scrolll);
     //console.log(b);
-    if (scrollPosition >= bottomPosition) {
+    console.log('scrollP: ' + scrollPosition);
+    console.log('bottomP: ' + bottomPosition);
+    if (isBottomOfPage()) {
+        console.log("¡Has llegado al final de la página!");
+        // Acciones personalizadas
+    }
+    if (isBottomOfPage()) {
+    //if (scrollPosition >= bottomPosition) {
     //if (b == scrolll) {
         topp.style.bottom = 105 + 'px';
+        console.log("¡Has llegado al final de la página!");
     } else {
         topp.style.bottom = 20 + 'px';
     }
   } else {
     mybutton.style.display = "none";
   }
+}
+
+function isBottomOfPage() {
+    return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight;
 }
 
 // When the user clicks on the button, scroll to the top of the document
@@ -148,16 +160,13 @@ function topFunction() {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
-        });
-        alert('no');
-        console.log('no');
+        });                
     } else {
         // Fallback para navegadores más antiguos
         let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
         if (currentScroll > 0) {
             window.requestAnimationFrame(topFunction);
-            window.scrollTo(0, currentScroll - currentScroll / 8); // Efecto suave manual
-            alert('si');
+            window.scrollTo(0, currentScroll - currentScroll / 8); // Efecto suave manual            
         }
     }
 }
