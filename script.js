@@ -7,7 +7,7 @@ const precios = [
     {name: 'burguer', valor: '6500'},
     {name: 'cordero', valor: '9000'},
     {name: 'pollo', valor: '5500'},
-    {name: 'chori', valor: '4500'},
+    {name: 'choritaco', valor: '4500'},
     {name: 'trucha', valor: '5000'},
     {name: 'veggie', valor: '4000'},
     {name: 'pancho', valor: '4000'},
@@ -18,16 +18,28 @@ const plataforma = navigator.userAgent;
 
 window.onload = function() {
     cargarImg();
-    for (let i = 0; i < precios.length; i++) {
-        try {
-            price[i].textContent = '';
+
+    /* for (let v = 0; v < price.length; v++) {
+        var precioId = price[v].id;
+        const result = precios.find(({ name }) => name === precioId.toLowerCase());
+        for (let i = 0; i < precios.length; i++) {
+            price[v].textContent = '$' + result.valor;
         }
-        finally {
-            console.log(precios[i]);
-            price[i].textContent = '$' + precios[i].valor;
+    } */
+
+    //por cada elemento dentro de la constante "price", realizamos la busqueda del "id"
+    //dentro del array "precios".
+    //una vez localizado el ID del elemento, dentro del array PRICE, colocamos el valor del mismo
+    //dentro del "TEXTCONTENT" del elemento.
+    price.forEach((element) => {
+        const precioId = element.id.toLowerCase();
+        const result = precios.find(({ name }) => name === precioId);
+        if (result) {
+            element.textContent = '$' + result.valor;
         }
-    }
-    console.log(location.href);
+    });
+
+    //console.log(location.href);
     if (page.textContent == 'Comidas') {
         page.textContent = 'Bebidas';
         page.href = 'bebidas.html';
@@ -75,11 +87,69 @@ function cargarImg(){
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
 
-    menuToggle.addEventListener('click', () => {
-        menu.classList.toggle('active');
+if (plataforma.includes('Win')) {    
+    document.addEventListener('DOMContentLoaded', () => {
+        //const menuToggle = document.querySelector('.menu-toggle');
+        //const menu = document.querySelector('.menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
     });
+} else if (plataforma.includes('Android')) {
+    menu.classList.toggle('active');
+    window.onscroll = function() {scrollFunction()};
+};
+
+const mybutton = document.getElementById("myBtn");
+const topp = document.querySelector('.top');
+let a = 0;
+let scrolll = '';
+// When the user scrolls down 20px from the top of the document, show the button
+//window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+    //var a = document.documentElement.scrollTop;
+    //var b = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    //console.log(a);
+    //console.log(document.documentElement.clientHeight);
+    scrolll = this.scrollY;
+    a = document.body.offsetHeight - screen.height;    
+    if (a === scrolll) {        
+        topp.style.bottom = 105 + 'px';        
+    } else {
+        topp.style.bottom = 20 + 'px';
+    }
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    //document.body.scrollTop = 0; // For Safari
+    //document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    if ('scrollTo' in window) { // Verifica si el navegador soporta scrollTo
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    } else {
+        // Fallback para navegadores más antiguos
+        let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        if (currentScroll > 0) {
+            window.requestAnimationFrame(topFunction);
+            window.scrollTo(0, currentScroll - currentScroll / 8); // Efecto suave manual
+        }
+    }
+}
+
+window.addEventListener("scroll", (event) => {
+    //let scroll = this.scrollY;
+    //console.log(scroll)
 });

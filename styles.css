@@ -238,6 +238,40 @@ main {
     animation: heartbeat 1.5s ease-in-out 10;
 }
 
+.top {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: right;
+    bottom: 20px;
+    z-index: 99;
+    
+}
+
+#myBtn {
+    display: none;
+}
+
+/* #myBtn {
+    display: none; Hidden by default
+    position: fixed; Fixed/sticky position
+    bottom: 20px; Place the button at the bottom of the page
+    right: 30px; Place the button 30px from the right
+    z-index: 99; Make sure it does not overlap
+    border: none; Remove borders
+    outline: none; Remove outline
+    background-color: red; Set a background color
+    color: white; Text color
+    cursor: pointer; Add a mouse pointer on hover
+    padding: 15px; Some padding
+    border-radius: 10px; Rounded corners
+    font-size: 18px; Increase font size
+  }
+  
+  #myBtn:hover {
+    background-color: #555; Add a dark-grey background on hover
+  } */
+
 footer {
     background-color: #333;
     color: white;
@@ -319,12 +353,19 @@ footer a:hover {
         /* width: 350px; */
         height: 100px;
         opacity: 0.8;
-        animation: heartbeat2 1.5s ease-in-out 5;
+        /* animation: heartbeat2 1.5s ease-in-out 5; */
+        animation: heartbeat2 1.5s ease-in-out 2;
     }
 
     .menu-container {
+        position: fixed;
         margin-right: 10px;
-        top: -40px;
+        /* top: -40px; */
+        top: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1;
+
     }
 
     .menu.active {
@@ -351,12 +392,7 @@ footer a:hover {
         width: 100%;
         display: flex;
         flex-direction: column;
-    }
-
-    /* .menu-item .price {
-        margin: 0;
-        border: 1px solid;
-    } */
+    }    
 
     .menu-item h3 {
         color: #c1ff72;
@@ -377,8 +413,9 @@ footer a:hover {
 
     .menu-item .price {
         /* text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6); */
-        text-shadow: 0 2px 2px #333;
-        color: #333;
+        /* text-shadow: 0 2px 2px #333; */
+        text-shadow: none;
+        color: white;
     }
 
     .menu-item .price, .menu-item h3, .menu-item p {
@@ -397,23 +434,7 @@ footer a:hover {
     .menu-item .Burguer, .menu-item .Cordero, .menu-item .Choritaco, .menu-item .Trucha,
     .menu-item .Veggie, .menu-item .Pancho, .menu-item .Fritas, .menu-item .Pollo{
         display: none;
-    }
-
-    /* .menu-item .Choritaco {
-        display: none;
-    }
-
-    .menu-item .Trucha {
-        display: none;
-    }
-
-    .menu-item .Veggie {
-        display: none;
-    }
-
-    .menu-item .Pancho {
-        display: none;
-    } */
+    }    
 
     .menu-item .FondoImg {
         position: relative;
@@ -440,12 +461,7 @@ footer a:hover {
         /* margin-right: auto; */
         /* display: none; */
         /* border: 1px solid blue; */
-    }
-
-    /* .menu-item .Img2 { */
-        /* opacity: 0.3; */
-        /* display: none; */
-    /* } */
+    }    
 
     .menu-item .Img2 {
         position: absolute;
@@ -459,6 +475,36 @@ footer a:hover {
         /* margin-left: auto; */
         /* margin-right: auto; */
         /* display: none; */
+    }
+
+    .nodo-img-item img {
+        /* position: relative; */
+        /* width: 20%; */
+        /* animation: heartbeat 1.5s infinite; */
+        animation: heartbeat 1.5s ease-in-out 4;
+    }
+
+    #myBtn {
+        display: none; /* Hidden by default */
+        position: relative; /* Fixed/sticky position */
+        /* bottom: 20px; /* Place the button at the bottom of the page */
+        right: 20px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: 1px solid #333; /* Remove borders */
+        outline: none; /* Remove outline */
+        /* background-color: red; /* Set a background color */
+        background-color: #333333eb;
+        background-image: url('Imagenes/top.webp');
+        background-size: cover;
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 20px; /* Some padding */
+        border-radius: 50px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+    }
+      
+    #myBtn:hover {
+        background-color: #555; /* Add a dark-grey background on hover */
     }
 
     footer {
