@@ -18,10 +18,11 @@ const plataforma = navigator.userAgent;
 
 window.onload = function() {
     cargarImg();
-    console.log(navigator.userAgent);
+    //console.log(navigator.userAgent);
     var parser = new UAParser();
     console.log(parser.getResult());
-    alert('width: ' + screen.width + ' - height: ' + screen.height);
+    alert(parser.getResult().browser.name + ' - ' + parser.getResult().browser.version);
+    //alert('width: ' + screen.width + ' - height: ' + screen.height);
 
 
     /* for (let v = 0; v < price.length; v++) {
@@ -138,7 +139,7 @@ function scrollFunction() {
     //console.log('bottomP: ' + bottomPosition);
     if (isBottomOfPage()) {
         console.log("¡Has llegado al final de la página!");
-        alert(Math.round(document.documentElement.scrollHeight));
+        //alert(Math.round(document.documentElement.scrollHeight));
         // Acciones personalizadas
     }
     if (isBottomOfPage()) {
