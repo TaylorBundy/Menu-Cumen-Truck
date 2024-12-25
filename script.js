@@ -18,6 +18,11 @@ const plataforma = navigator.userAgent;
 
 window.onload = function() {
     cargarImg();
+    console.log(navigator.userAgent);
+    var parser = new UAParser();
+    console.log(parser.getResult());
+    alert('width: ' + screen.width + ' - height: ' + screen.height);
+
 
     /* for (let v = 0; v < price.length; v++) {
         var precioId = price[v].id;
@@ -129,8 +134,8 @@ function scrollFunction() {
     //console.log(screen.height);
     //console.log(scrolll);
     //console.log(b);
-    console.log('scrollP: ' + scrollPosition);
-    console.log('bottomP: ' + bottomPosition);
+    //console.log('scrollP: ' + scrollPosition);
+    //console.log('bottomP: ' + bottomPosition);
     if (isBottomOfPage()) {
         console.log("¡Has llegado al final de la página!");
         alert(Math.round(document.documentElement.scrollHeight));
@@ -176,3 +181,17 @@ window.addEventListener("scroll", (event) => {
     //let scroll = this.scrollY;
     //console.log(scroll)
 });
+
+function getAndroidVersion() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const match = userAgent.match(/Android\s([0-9\.]+)/);
+    return match ? match[1] : null; // Devuelve la versión o null si no es Android
+}
+
+const androidVersion = getAndroidVersion();
+
+if (androidVersion) {
+    console.log(`El dispositivo está ejecutando Android ${androidVersion}`);
+} else {
+    console.log("El dispositivo no está usando Android.");
+}
