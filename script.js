@@ -3,6 +3,8 @@ const facebook = document.querySelector('#Facebook');
 const instagram = document.querySelector('#Instagram');
 const price = document.querySelectorAll('.price');
 const page = document.querySelector('#page a');
+const metaContent = document.querySelector('meta[name="description"]');
+const ContMeta = 'Cumen Truck ofrece una deliciosa variedad de comidas rápidas, incluyendo hamburguesas, tacos y panchos, elaborados con ingredientes frescos y de calidad. Disfruta de opciones como la Hamburguesa de Cordero con cebolla caramelizada y alioli, o el Taco Veggie con verduras salteadas, todo a precios accesibles. ¡El buen sabor te espera en Cumen Truck!';
 const precios = [
     {name: 'burguer', valor: '6500'},
     {name: 'cordero', valor: '9000'},
@@ -16,8 +18,20 @@ const precios = [
 //definimos constante plataforma
 const plataforma = navigator.userAgent;
 
+/* $(document).load (function() {
+    $('meta[property="og:title"]').remove();
+    $('meta[property="og:description"]').remove();
+    $('meta[property="og:url"]').remove();
+    $("head").append('<meta property="og:title" content="blubb1">');
+    $("head").append('<meta property="og:description" content="blubb2">');
+    $("head").append('<meta property="og:url" content="blubb3">');
+  }); */
+
 window.onload = function() {
     cargarImg();
+    metaContent.content = ContMeta;
+    console.log(metaContent.content);
+    console.log(document.querySelector('meta[name="description"]').content);
     //console.log(navigator.userAgent);
     //var parser = new UAParser();
     //console.log(parser.getResult());
