@@ -150,7 +150,7 @@ function scrollFunction() {
 }
 
 function isBottomOfPage() {
-    return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight;
+    return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight);
 }
 
 // When the user clicks on the button, scroll to the top of the document
