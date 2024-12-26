@@ -5,7 +5,8 @@ const price = document.querySelectorAll('.price');
 const page = document.querySelector('#page a');
 const metaContent = document.querySelector('meta[name="description"]');
 const ContMeta = 'Cumen Truck ofrece una deliciosa variedad de comidas rápidas, incluyendo hamburguesas, tacos y panchos, elaborados con ingredientes frescos y de calidad. Disfruta de opciones como la Hamburguesa de Cordero con cebolla caramelizada y alioli, o el Taco Veggie con verduras salteadas, todo a precios accesibles. ¡El buen sabor te espera en Cumen Truck!';
-const precios = [
+
+/* const precios = [
     {name: 'burguer', valor: '6500'},
     {name: 'cordero', valor: '9000'},
     {name: 'pollo', valor: '5500'},
@@ -14,18 +15,10 @@ const precios = [
     {name: 'veggie', valor: '4000'},
     {name: 'pancho', valor: '4000'},
     {name: 'fritas', valor: '4000'}
-  ];
+  ]; */
+
 //definimos constante plataforma
 const plataforma = navigator.userAgent;
-
-/* $(document).load (function() {
-    $('meta[property="og:title"]').remove();
-    $('meta[property="og:description"]').remove();
-    $('meta[property="og:url"]').remove();
-    $("head").append('<meta property="og:title" content="blubb1">');
-    $("head").append('<meta property="og:description" content="blubb2">');
-    $("head").append('<meta property="og:url" content="blubb3">');
-  }); */
 
 window.onload = function() {
     cargarImg();
@@ -39,25 +32,24 @@ window.onload = function() {
     //alert('width: ' + screen.width + ' - height: ' + screen.height);
 
 
-    /* for (let v = 0; v < price.length; v++) {
-        var precioId = price[v].id;
-        const result = precios.find(({ name }) => name === precioId.toLowerCase());
-        for (let i = 0; i < precios.length; i++) {
-            price[v].textContent = '$' + result.valor;
-        }
-    } */
-
     //por cada elemento dentro de la constante "price", realizamos la busqueda del "id"
     //dentro del array "precios".
     //una vez localizado el ID del elemento, dentro del array PRICE, colocamos el valor del mismo
     //dentro del "TEXTCONTENT" del elemento.
     price.forEach((element) => {
+    (async () => {
+        const descripcion = await buscarDescripcion2(element.id.toLowerCase(), 'precios', 'precios'); // Cambiar a otro identificador para probar
+        element.textContent = '$' + descripcion;
+      })();
+    });
+
+    /* price.forEach((element) => {
         const precioId = element.id.toLowerCase();
         const result = precios.find(({ name }) => name === precioId);
         if (result) {
             element.textContent = '$' + result.valor;
         }
-    });
+    }); */
 
     //console.log(location.href);
     if (page.textContent == 'Comidas') {
@@ -88,6 +80,7 @@ function Titulos() {
 //para luego crear un nuevo elemento img para colocar el logo con efecto
 function cargarImg(){
     var destino = document.querySelectorAll(".menu-item");
+    //var destino = elem;
     if (destino == undefined)
         alert("No existe el bloque destino")
     else{
@@ -109,20 +102,77 @@ function cargarImg(){
 
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
+const hahaha = document.getElementById('jaja');
+const todosss = document.querySelectorAll('div:not(.menu-container), .menu-section .menu-item');
+let tiene = '';
+
+todosss.forEach(element => {
+//le añadimos el evento "onClick"  a cada elemento
+    element.addEventListener("click", () => {
+        tiene = menu.classList.value;
+        if (tiene == 'menu active') {
+            //console.log(tiene);
+            menu.classList.remove('active');
+        } else {
+            //console.log('no');
+        }
+    })
+});
+
+
 
 if (plataforma.includes('Win')) {
     document.addEventListener('DOMContentLoaded', () => {
-        //const menuToggle = document.querySelector('.menu-toggle');
-        //const menu = document.querySelector('.menu');
-
         menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('active');
+            tiene = menu.classList.value;
+            if (tiene === 'menu active') {
+                menu.classList.remove('active');
+            } else {
+                menu.classList.add('active');
+            }
         });
     });
 } else if (plataforma.includes('Android')) {
     menu.classList.toggle('active');
     window.onscroll = function() {scrollFunction()};
 };
+
+async function hiddde(hg) {
+    if (plataforma.includes('Win')) {
+        tiene = menu.classList.value;
+        console.log(tiene);
+        if (hg === 'saltar') {
+            tiene = '';
+            console.log('hay que saltar');
+            return 'no';
+        } else {
+            console.log(hg);
+        //if (menu.classList.contains('active')) {
+            if (tiene === 'menu active') {
+                if (hg === 'header' && tiene === 'menu active') {
+                    console.log(hg);
+                    menu.classList.remove('active');
+                    tiene = '';
+                }
+                if (hg.includes('menus') && tiene === 'menu active') {
+                    console.log('menu');
+                    menu.classList.remove('active');
+                }
+            } else {
+                if (hg.includes('menus')) {
+                    menu.classList.toggle('active');
+                }
+                //menu.classList.add('active');
+            }
+        }
+    } else if (plataforma.includes('Android')) {
+        //
+    }
+}
+
+function estado(){
+
+}
 
 const mybutton = document.getElementById("myBtn");
 const topp = document.querySelector('.top');
@@ -208,12 +258,23 @@ if (androidVersion) {
 } else {
     console.log("El dispositivo no está usando Android.");
 } */
+function ejecutarParaElementos(elementos) {
+    elementos.forEach(elemento => {
+      if (elemento.classList.contains('hidden')) {
+        console.log("El elemento está oculto. Saltando...");
+        return; // Saltar al siguiente elemento
+      }
+      console.log("Procesando elemento visible:", elemento);
+      // Resto del código para elementos visibles
+    });
+  }
 
 // Verifica si el dispositivo es móvil
 function esMovil() {
     return /Mobi|Android/i.test(navigator.userAgent);
 }
-
+let elemID = '';
+let classi = '';
 if (esMovil()) {
     document.addEventListener('DOMContentLoaded', () => {
         const menuItems = document.querySelectorAll('.menu-item');
@@ -223,9 +284,17 @@ if (esMovil()) {
         //detailView.classList.add('detail-view');
         //document.body.appendChild(detailView);
         document.querySelector('main').appendChild(detailView);
+        //const logo = document.createElement('img');
+        //logo.setAttribute("src", "Imagenes/logo-transparente.webp");
+        //logo.id = 'img-item-0';
+        //logo.className = 'cococ';
+        //document.querySelector('main .detail-view').appendChild(logo);
 
-        menuItems.forEach(item => {
+        menuItems.forEach((item, index) => {
+
             item.addEventListener('click', () => {
+                //ejecutarParaElementos(menuItems);
+                
                 // Calcular la posición del artículo
                 const rect = item.getBoundingClientRect();
                 const positionX = rect.left + window.scrollX;
@@ -243,36 +312,50 @@ if (esMovil()) {
                 // Forzar un reflow para registrar el estado inicial
                 detailView.offsetHeight;
 
+                //if (detailView.style.visibility == 'visible') {
+                    //return;
+                //} else {
+                    item.classList.add('hidden');
+                //}
+               
+
+
                 //setTimeout(() => {
                     // Ocultar el artículo
                     //item.classList.add('hidden');
                 //}, 300);
                 //requestAnimationFrame(() => {
-                    item.classList.add('hidden');
-                //});
+                    
 
                 setTimeout(() => {
                     item.ontransitionend = (evento) => {
                         if (evento.propertyName === 'transform' && item.classList.contains('hidden')) { // Asegura que estamos escuchando transform
-                        //console.log('La transición de transform ha terminado.');
-                        detailView.classList.add('active');
-                        //console.log(parseFloat(window.getComputedStyle(detailView).transform));
-                        lalalala(detailView);
-                        detailView.style.transform = 'scale(1)';
-                        //return true;
-                        // Puedes realizar acciones aquí, como ocultar el elemento completamente
-                        //miElemento.style.display = 'none';
+                            //if (classi == 'ok'){
+                            detailView.classList.add('active');
+                            detailView.id = 'details-' + item.id;
+                            //lalalala(detailView);
+                            detailView.style.transform = 'scale(1)';
+                            //}
                         }
                     };
                 }, 300);
 
                 // Mostrar información detallada
                 const detailContent = `
+                    <img src="Imagenes/logo-transparente.webp" alt="" id="FondoImg" class="FondoImg">
                     <h2>${item.querySelector('h3').textContent}</h2>
                     <p>${item.querySelector('p:not(.price)').textContent}</p>
-                    <button class="back-button"></button>
+                    <p name="text" id="descr" class="descripcion"></p>
+                    <button class="back-button"><img src="Imagenes/close.webp" alt="" id="btnClose" class="btnClose"></button>
                 `;
                 detailView.innerHTML = detailContent;
+                var lklk = item.querySelector('.price');
+                // Ejemplo de uso
+                (async () => {
+                    const descripcion = await buscarDescripcion2(lklk.id.toLowerCase(), 'descripciones', 'descripciones');
+                    const AreaDescription = document.querySelector('#descr');
+                    AreaDescription.textContent = descripcion;
+                })();
 
                 // Manejar el botón "Volver"
                 const backButton = detailView.querySelector('.back-button');
@@ -287,7 +370,7 @@ if (esMovil()) {
                     }
                     detailView.classList.replace('active', 'final');
                     //console.log(window.getComputedStyle(detailView).transform);
-                    lalalala(detailView);
+                    //lalalala(detailView);
 
                     setTimeout(() => {
                         detailView.ontransitionend = (evento) => {
@@ -301,39 +384,13 @@ if (esMovil()) {
                             }
                         };
                     },300);
-                    //requestAnimationFrame(() => {
-                        //detailView.classList.add('active');
-                    //});
-
-
-                        //detailView.classList.replace('active', 'final')
-                        //detailView.classList.remove('final');
-                        //detailView.classList.toggle('exit');
-
-                    //detailView.classList.add('final');
-                    // Mostrar de nuevo el menú-item después de un corto retraso
-                    //setTimeout(() => {
-                        //detailView.classList.remove('exit'); // Reset de animación
-                        //detailView.classList.remove('final');
-                        //detailView.innerHTML = ''; // Limpia el contenido
-                        //item.classList.remove('hidden'); // Vuelve a mostrar el elemento
-                    //}, 300); // Duración de la animación (0.3s)
-
                 });
+            
             });
         });
     });
+
 }
-
-/* function terrrrmina(item) {
-
-    item.ontransitionend = (evento) => {
-        if (evento.propertyName === 'transform') { // Asegura que estamos escuchando transform
-          console.log('La transición de transform ha terminado.');
-          return true;
-        }
-    };
-} */
 
 function lalalala(ele){
     const estilo = window.getComputedStyle(ele);
@@ -351,8 +408,48 @@ function lalalala(ele){
         resultado = 1;
       } else {
         resultado = 0;
-      }      
+      }
       //console.log(resultado);
       //console.log(`ScaleX: ${escalaX}, ScaleY: ${escalaY}`);
       return resultado;
+}
+  // Función para cargar el archivo JSON
+async function cargarJson(url) {
+    try {
+      const respuesta = await fetch(url);
+      if (!respuesta.ok) throw new Error(`Error al cargar JSON: ${respuesta.statusText}`);
+      const datos = await respuesta.json(); // Parsear el JSON
+      return datos;
+    } catch (error) {
+      console.error("Error al cargar el archivo JSON:", error);
+    }
+  }
+
+// Función para buscar una descripción por su identificador
+async function buscarDescripcion2(identificador, titu, archivo) {
+    const datos = await cargarJson("assets/" + archivo + '.json');
+    if (titu == 'precios') {
+        if (datos && datos.precios && datos.precios[identificador]) {
+        return datos.precios[identificador];
+        } else {
+        return "Descripción no encontrada.";
+        }
+    } else {
+        if (datos.descripciones && datos.descripciones[identificador]) {
+            return datos.descripciones[identificador];
+        } else {
+            return "Identificador no encontrado.";
+        }
+    }
+}
+
+function detectarBoton(event){
+
+	if (event.button==2)
+		alert("El botón del ratón pulsado fue el derecho");
+	else if (event.button==1)
+		alert("El botón del ratón pulsado fue el medio");
+     else
+		alert("El botón del ratón pulsado fue el izquierdo");
+
 }
