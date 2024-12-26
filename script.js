@@ -30,8 +30,8 @@ const plataforma = navigator.userAgent;
 window.onload = function() {
     cargarImg();
     metaContent.content = ContMeta;
-    console.log(metaContent.content);
-    console.log(document.querySelector('meta[name="description"]').content);
+    //console.log(metaContent.content);
+    //console.log(document.querySelector('meta[name="description"]').content);
     //console.log(navigator.userAgent);
     //var parser = new UAParser();
     //console.log(parser.getResult());
@@ -150,20 +150,20 @@ function scrollFunction() {
     //console.log(document.documentElement.clientHeight);
     //scrolll = this.scrollY;
     //a = document.body.offsetHeight || document.documentElement.offsetHeight;
-    //b = a - screen.height;    
-        
+    //b = a - screen.height;
+
     if (isBottomOfPage()) {
     //if (scrollPosition >= bottomPosition) {
     //if (b == scrolll) {
-        topp.style.bottom = 85 + 'px';        
+        topp.style.bottom = 85 + 'px';
     } else if (scrolll <= Math.max(document.documentElement.scrollHeight) - window.innerHeight) {
         final = inicios - (TargetHeight - scrolll);
         if (final > target && final <= inicios) {
-        console.log(Math.max(target,final) + 'px');
+        //console.log(Math.max(target,final) + 'px');
         topp.style.bottom = Math.max(target,final) + 'px';
         } else {
             topp.style.bottom = 20 + 'px';
-            console.log('llegamos a 20');
+            //console.log('llegamos a 20');
         }
     }
   } else {
@@ -184,13 +184,13 @@ function topFunction() {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
-        });                
+        });
     } else {
         // Fallback para navegadores más antiguos
         let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
         if (currentScroll > 0) {
             window.requestAnimationFrame(topFunction);
-            window.scrollTo(0, currentScroll - currentScroll / 8); // Efecto suave manual            
+            window.scrollTo(0, currentScroll - currentScroll / 8); // Efecto suave manual
         }
     }
 }
@@ -201,10 +201,158 @@ function getAndroidVersion() {
     return match ? match[1] : null; // Devuelve la versión o null si no es Android
 }
 
-const androidVersion = getAndroidVersion();
+/* const androidVersion = getAndroidVersion();
 
 if (androidVersion) {
     console.log(`El dispositivo está ejecutando Android ${androidVersion}`);
 } else {
     console.log("El dispositivo no está usando Android.");
+} */
+
+// Verifica si el dispositivo es móvil
+function esMovil() {
+    return /Mobi|Android/i.test(navigator.userAgent);
+}
+
+if (esMovil()) {
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuItems = document.querySelectorAll('.menu-item');
+        const detailView = document.createElement('div');
+        detailView.id = 'details';
+        detailView.className = 'detail-view';
+        //detailView.classList.add('detail-view');
+        //document.body.appendChild(detailView);
+        document.querySelector('main').appendChild(detailView);
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Calcular la posición del artículo
+                const rect = item.getBoundingClientRect();
+                const positionX = rect.left + window.scrollX;
+                const positionY = rect.top + window.scrollY;
+                //console.log(rect.left);
+                //console.log(rect.top);
+
+                // Establecer el estilo de `detailView` para que coincida
+                detailView.style.left = `${positionX}px`;
+                detailView.style.top = `${positionY}px`;
+                detailView.style.width = `${rect.width}px`; // Mantener el ancho del artículo
+                detailView.style.height = `${rect.height}px`; // Mantener la altura del artículo
+                detailView.style.transform = 'scale(0)';
+
+                // Forzar un reflow para registrar el estado inicial
+                detailView.offsetHeight;
+
+                //setTimeout(() => {
+                    // Ocultar el artículo
+                    //item.classList.add('hidden');
+                //}, 300);
+                //requestAnimationFrame(() => {
+                    item.classList.add('hidden');
+                //});
+
+                setTimeout(() => {
+                    item.ontransitionend = (evento) => {
+                        if (evento.propertyName === 'transform' && item.classList.contains('hidden')) { // Asegura que estamos escuchando transform
+                        //console.log('La transición de transform ha terminado.');
+                        detailView.classList.add('active');
+                        //console.log(parseFloat(window.getComputedStyle(detailView).transform));
+                        lalalala(detailView);
+                        detailView.style.transform = 'scale(1)';
+                        //return true;
+                        // Puedes realizar acciones aquí, como ocultar el elemento completamente
+                        //miElemento.style.display = 'none';
+                        }
+                    };
+                }, 300);
+
+                // Mostrar información detallada
+                const detailContent = `
+                    <h2>${item.querySelector('h3').textContent}</h2>
+                    <p>${item.querySelector('p:not(.price)').textContent}</p>
+                    <button class="back-button"></button>
+                `;
+                detailView.innerHTML = detailContent;
+
+                // Manejar el botón "Volver"
+                const backButton = detailView.querySelector('.back-button');
+                backButton.addEventListener('click', () => {
+                    // Animar `detailView` hacia la derecha
+                    //detailView.classList.remove('active');
+                    //detailView.style.transform = 'scale(0)';
+                    if (lalalala(detailView) > 0) {
+                        detailView.style.transform = 'scale(0)';
+                    } else {
+                        detailView.style.transform = 'scale(1)';
+                    }
+                    detailView.classList.replace('active', 'final');
+                    //console.log(window.getComputedStyle(detailView).transform);
+                    lalalala(detailView);
+
+                    setTimeout(() => {
+                        detailView.ontransitionend = (evento) => {
+                            if (evento.propertyName === 'transform' && detailView.classList.contains('final')) { // Asegura que estamos escuchando transform
+                                //console.log('La transición de transform ha terminado.');
+                                detailView.classList.remove('final');
+                            //detailView.classList.add('active');
+                            //detailView.style.transform = 'scale(1)';
+                            detailView.innerHTML = ''; // Limpia el contenido
+                        item.classList.remove('hidden'); // Vuelve a mostrar el elemento
+                            }
+                        };
+                    },300);
+                    //requestAnimationFrame(() => {
+                        //detailView.classList.add('active');
+                    //});
+
+
+                        //detailView.classList.replace('active', 'final')
+                        //detailView.classList.remove('final');
+                        //detailView.classList.toggle('exit');
+
+                    //detailView.classList.add('final');
+                    // Mostrar de nuevo el menú-item después de un corto retraso
+                    //setTimeout(() => {
+                        //detailView.classList.remove('exit'); // Reset de animación
+                        //detailView.classList.remove('final');
+                        //detailView.innerHTML = ''; // Limpia el contenido
+                        //item.classList.remove('hidden'); // Vuelve a mostrar el elemento
+                    //}, 300); // Duración de la animación (0.3s)
+
+                });
+            });
+        });
+    });
+}
+
+/* function terrrrmina(item) {
+
+    item.ontransitionend = (evento) => {
+        if (evento.propertyName === 'transform') { // Asegura que estamos escuchando transform
+          console.log('La transición de transform ha terminado.');
+          return true;
+        }
+    };
+} */
+
+function lalalala(ele){
+    const estilo = window.getComputedStyle(ele);
+      const transform = estilo.transform;
+      if (transform === 'none') {
+        console.log('No se ha aplicado ninguna transformación.');
+        return;
+      }
+      // Analizamos la matriz de transformación
+      const valores = transform.match(/matrix\(([^)]+)\)/)[1].split(', ');
+      const escalaX = parseFloat(valores[0]); // El valor de scaleX está en la posición 0
+      const escalaY = parseFloat(valores[3]); // El valor de scaleY está en la posición 3 (en una matriz 2D)
+      let resultado = '';
+      if (escalaX > 0 && escalaY > 0) {
+        resultado = 1;
+      } else {
+        resultado = 0;
+      }      
+      //console.log(resultado);
+      //console.log(`ScaleX: ${escalaX}, ScaleY: ${escalaY}`);
+      return resultado;
 }
