@@ -330,17 +330,12 @@ if (esMovil()) {
                     //console.log(item.id);                
 
                 for (let c = 0; c < menuItems.length; c++) {
-                    var menuclass = menuItems[c];
-                    console.log(menuclass.classList);
+                    var menuclass = menuItems[c];                    
                     if (menuclass.classList.value === 'menu-item hidden') {
                         menuclass.classList.remove('hidden');
                     } else {
                         item.classList.add('hidden');
-                    }
-                    console.log(menuclass.classList.value);
-                    //console.log(menuItems[c].classList);
-                    //console.log(menuItems[c].id);
-
+                    }                    
                 }
                     //console.log(item.classList);
 
