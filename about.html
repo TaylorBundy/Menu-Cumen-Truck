@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cumen Truck!">
     <link rel="shortcut icon" href="Imagenes/favicon.ico">
     <title>Sobre Nosotros - Cumen Truck</title>
-    <script type="text/javascript" src="script.js" defer></script>
+    <!-- <script type="text/javascript" src="script.js" defer></script> -->
     <link rel="stylesheet" href="styles2.css"> <!-- Asegúrate de enlazar tu CSS -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     <!-- <style>
         body {
             font-family: Arial, sans-serif;
@@ -88,7 +90,7 @@
                     <!-- <li><a href="bebidas.html">Bebidas</a></li> -->
                     <!-- <li><a href="about.html">Nosotros</a></li> -->
                     <!-- <li><a href="#contacto">Contacto</a></li> -->
-                    <li><a href="index.html">Comidas</a></li>
+                    <li id="page"><a href="index.html">Comidas</a></li>
                     <li><a href="bebidas.html">Bebidas</a></li>
                     <!-- <li><a href="about.html">Nosotros</a></li> -->
                 </ul>
@@ -108,26 +110,35 @@
                 Nuestro compromiso con la calidad y el sabor nos ha convertido en una referencia en la escena gastronómica local. Nos esforzamos por brindar una experiencia única, tanto en sabor como en servicio.
             </p>
         </div>
-        <div class="content">
+        <div class="content" id="equipo">
             <h2>El Equipo</h2>
             <p>Detrás de cada platillo hay un equipo apasionado y comprometido con la excelencia:</p>
             <div class="team">
                 <div class="team-member">
-                    <img src="https://via.placeholder.com/150" alt="Fundador">
-                    <h3>Taylor Bundy</h3>
-                    <p>Fundador y chef principal</p>
+                    <img src="Imagenes/team/taylor.webp" alt="Fundador">
+                    <div class="info">
+                        <h3>Carmen Cordero</h3>
+                        <p>Fundador y chef principal</p>
+                    </div>
                 </div>
                 <div class="team-member">
-                    <img src="https://via.placeholder.com/150" alt="Coordinador">
-                    <h3>Juan Pérez</h3>
-                    <p>Coordinador de operaciones</p>
+                    <img src="Imagenes/team/taylor.webp" alt="Coordinador">
+                    <div class="info">
+                        <h3>Juan Carlos Barbosa</h3>
+                        <p>Coordinador de operaciones</p>
+                    </div>
                 </div>
                 <div class="team-member">
-                    <img src="https://via.placeholder.com/150" alt="Marketing">
-                    <h3>María Gómez</h3>
-                    <p>Responsable de marketing</p>
+                    <img src="Imagenes/team/taylor.webp" alt="Marketing">
+                    <div class="info">
+                        <h3>Diego Martín Barbosa</h3>
+                        <p>Responsable de marketing</p>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="top">
+            <button onclick="topFunction2()" id="myBtn" title="Go to top"></button>
         </div>
     </div>
     <footer>
@@ -135,5 +146,117 @@
         <a href="https://www.facebook.com/cumen.truck" target="_blank"><img src="Imagenes/facebook.svg" alt="Facebook" class="ImgSocial" id="Facebook" onmouseover="Titulos()"></a>
         <a href="https://www.instagram.com/cumen.truck/" target="_blank"><img src="Imagenes/instagram.webp" alt="Instagram" class="ImgSocial" id="Instagram" onmouseover="Titulos()"></a>
     </footer>
+    <!-- <script type="text/javascript" src="script.js" defer></script> -->
+    <script>
+        /* async function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrolll = this.scrollY;
+                mybutton.style.display = "block";
+                //const scrollPosition = window.scrollY + window.innerHeight;
+                //const bottomPosition = document.documentElement.scrollHeight;
+                //var a = document.documentElement.scrollTop;
+                //var b = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                //console.log(a);
+                //console.log(document.documentElement.clientHeight);
+                //scrolll = this.scrollY;
+                //a = document.body.offsetHeight || document.documentElement.offsetHeight;
+                //b = a - screen.height;
+
+                if (isBottomOfPage()) {
+                //if (scrollPosition >= bottomPosition) {
+                //if (b == scrolll) {
+                    topp.style.bottom = 85 + 'px';
+                } else if (scrolll <= Math.max(document.documentElement.scrollHeight) - window.innerHeight) {
+                    final = inicios - (TargetHeight - scrolll);
+                    if (final > target && final <= inicios) {
+                        topp.style.bottom = Math.max(target,final) + 'px';
+                    } else {
+                        topp.style.bottom = 20 + 'px';
+                    }
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+        };
+
+        async function isBottomOfPage() {
+            //return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight);
+            return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight;
+        };
+
+        async function topFunction() {
+            //document.body.scrollTop = 0; // For Safari
+            //document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            if ('scrollTo' in window) { // Verifica si el navegador soporta scrollTo
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                // Fallback para navegadores más antiguos
+                let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                if (currentScroll > 0) {
+                    window.requestAnimationFrame(topFunction);
+                    window.scrollTo(0, currentScroll - currentScroll / 8); // Efecto suave manual
+                }
+            }
+        };
+
+        async function cargarModulo() {
+            try {
+                const modulo = await import('script.js');
+                modulo.scrollFunction2(); // Llama a la función exportada
+            } catch (error) {
+                console.error('Error al cargar el módulo:', error);
+            }
+        }
+
+        async function cargarFuncionDesdeAPI() {
+            try {
+                const respuesta = await fetch('script.js');
+                const script = await respuesta.text();
+                eval(script); // Evalúa el script (ten cuidado con la seguridad)
+                if (typeof scrollFunction2() === 'function') {
+                    miFuncion(); // Llama a la función cargada
+                } else {
+                    console.error('La función no está definida en el script.');
+                }
+            } catch (error) {
+                console.error('Error al cargar el script:', error);
+            }
+        } */
+
+        function cargarYEjecutarFuncion() {
+            const script = document.createElement('script');
+            script.src = 'script.js';
+            //script.type = 'module';
+            script.onload = () => {
+                // La función del archivo se llama aquí después de cargar
+                if (typeof scrollFunction2 === 'function') {
+                    scrollFunction2();
+                } else {
+                    console.error('La función no está definida.');
+                }
+            };
+            script.onerror = () => {
+                console.error('No se pudo cargar el script.');
+            };
+            document.head.appendChild(script);
+        }
+
+        /* const mybutton = document.getElementById("myBtn");
+        const topp = document.querySelector('.top');
+        const TargetHeight = document.documentElement.offsetHeight - window.innerHeight;
+        const inicios = 85;
+        const target = 20;
+        let final = ''; */
+        //window.onscroll = function () {scrollFunction()};
+        //window.onscroll = function () {cargarModulo()};
+        cargarYEjecutarFuncion();
+        //window.onscroll = function () {cargarYEjecutarFuncion()};
+    </script>
+    //<script>
+        //window.onscroll = function () {scrollFunction()};
+    //</script>
 </body>
 </html>
