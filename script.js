@@ -136,9 +136,9 @@ if (plataforma.includes('Win')) {
     });
 } else if (plataforma.includes('Android')) {
     menu.classList.add('active');
-    if (window.location.pathname === 'index.html') {
+    if (window.location.pathname.includes('index')) {
         window.onscroll = function() {scrollFunction()};
-    } else if (window.location.pathname === 'bebidas.html') {
+    } else if (window.location.pathname.includes('bebidas')) {
         window.onscroll = function() {scrollFunction()};
     } else if (window.location.pathname.includes('about')) {
         window.onscroll = function() {scrollFunction2()};
