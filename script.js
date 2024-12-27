@@ -1,4 +1,4 @@
-const imgsocial = document.querySelector('#ImgSocial');
+//const imgsocial = document.querySelector('#ImgSocial');
 const facebook = document.querySelector('#Facebook');
 const instagram = document.querySelector('#Instagram');
 const price = document.querySelectorAll('.price');
@@ -58,7 +58,7 @@ window.onload = function() {
     } else if (page.textContent == 'Bebidas') {
         page.textContent = 'Comidas';
         page.href = 'index.html';
-    } else if (location.href.includes('about')) {
+    } else if (location.href.includes('about') && window.location.pathname === 'about.html') {
         page.textContent = 'Comidas';
         page.href = 'index.html';
     }
@@ -108,15 +108,17 @@ let tiene = '';
 
 todosss.forEach(element => {
 //le añadimos el evento "onClick"  a cada elemento
-    element.addEventListener("click", () => {
-        tiene = menu.classList.value;
-        if (tiene == 'menu active') {
-            //console.log(tiene);
-            menu.classList.remove('active');
-        } else {
-            //console.log('no');
-        }
-    })
+    if (plataforma.includes('Win')) {
+        element.addEventListener("click", () => {
+            tiene = menu.classList.value;
+            if (tiene == 'menu active') {
+                //console.log(tiene);
+                menu.classList.remove('active');
+            } else {
+                //console.log('no');
+            }
+        })
+    }
 });
 
 
@@ -133,8 +135,16 @@ if (plataforma.includes('Win')) {
         });
     });
 } else if (plataforma.includes('Android')) {
-    menu.classList.toggle('active');
-    window.onscroll = function() {scrollFunction()};
+    menu.classList.add('active');
+    if (window.location.pathname === 'index.html') {
+        window.onscroll = function() {scrollFunction()};
+    } else if (window.location.pathname === 'bebidas.html') {
+        window.onscroll = function() {scrollFunction()};
+    } else if (window.location.pathname.includes('about')) {
+        window.onscroll = function() {scrollFunction2()};
+        
+    }   
+    console.log('hola'); 
 };
 
 async function hiddde(hg) {
@@ -245,6 +255,8 @@ function topFunction() {
     }
 }
 
+
+
 function getAndroidVersion() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const match = userAgent.match(/Android\s([0-9\.]+)/);
@@ -294,7 +306,7 @@ if (esMovil()) {
 
             item.addEventListener('click', () => {
                 //ejecutarParaElementos(menuItems);
-                
+
                 // Calcular la posición del artículo
                 const rect = item.getBoundingClientRect();
                 const positionX = rect.left + window.scrollX;
@@ -315,9 +327,25 @@ if (esMovil()) {
                 //if (detailView.style.visibility == 'visible') {
                     //return;
                 //} else {
-                    item.classList.add('hidden');
+                    //console.log(item.id);                
+
+                for (let c = 0; c < menuItems.length; c++) {
+                    var menuclass = menuItems[c];
+                    console.log(menuclass.classList);
+                    if (menuclass.classList.value === 'menu-item hidden') {
+                        menuclass.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                    console.log(menuclass.classList.value);
+                    //console.log(menuItems[c].classList);
+                    //console.log(menuItems[c].id);
+
+                }
+                    //console.log(item.classList);
+
                 //}
-               
+
 
 
                 //setTimeout(() => {
@@ -325,7 +353,7 @@ if (esMovil()) {
                     //item.classList.add('hidden');
                 //}, 300);
                 //requestAnimationFrame(() => {
-                    
+
 
                 setTimeout(() => {
                     item.ontransitionend = (evento) => {
@@ -385,7 +413,7 @@ if (esMovil()) {
                         };
                     },300);
                 });
-            
+
             });
         });
     });
@@ -452,4 +480,62 @@ function detectarBoton(event){
      else
 		alert("El botón del ratón pulsado fue el izquierdo");
 
+}
+
+function scrollFunction2() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      scrolll = document.scrollY;
+      mybutton.style.display = "block";
+      //const scrollPosition = window.scrollY + window.innerHeight;
+      //const bottomPosition = document.documentElement.scrollHeight;
+      //var a = document.documentElement.scrollTop;
+      //var b = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      //console.log(a);
+      //console.log(document.documentElement.clientHeight);
+      //scrolll = this.scrollY;
+      //a = document.body.offsetHeight || document.documentElement.offsetHeight;
+      //b = a - screen.height;
+  
+      if (isBottomOfPage2()) {
+      //if (scrollPosition >= bottomPosition) {
+      //if (b == scrolll) {
+          topp.style.bottom = 85 + 'px';
+      } else if (scrolll <= Math.max(document.documentElement.scrollHeight) - window.innerHeight) {
+          final = inicios - (TargetHeight - scrolll);
+          if (final > target && final <= inicios) {
+          //console.log(Math.max(target,final) + 'px');
+          topp.style.bottom = Math.max(target,final) + 'px';
+          } else {
+              topp.style.bottom = 20 + 'px';
+              //console.log('llegamos a 20');
+          }
+      } else {
+        //mybutton.style.display = "none";  
+      }
+    } else {
+      mybutton.style.display = "none";
+    }
+  };
+
+function isBottomOfPage2() {
+    //return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight);
+    return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight;
+}
+
+function topFunction2() {
+    //document.body.scrollTop = 0; // For Safari
+    //document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    if ('scrollTo' in window) { // Verifica si el navegador soporta scrollTo
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    } else {
+        // Fallback para navegadores más antiguos
+        let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        if (currentScroll > 0) {
+            window.requestAnimationFrame(topFunction2);
+            window.scrollTo(0, currentScroll - currentScroll / 8); // Efecto suave manual
+        }
+    }
 }
