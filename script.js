@@ -58,7 +58,7 @@ window.onload = function() {
     } else if (page.textContent == 'Bebidas') {
         page.textContent = 'Comidas';
         page.href = 'index.html';
-    } else if (location.href.includes('about') && window.location.pathname === 'about.html') {
+    } else if (location.href.includes('about') && window.location.pathname.includes('about')) {
         page.textContent = 'Comidas';
         page.href = 'index.html';
     }
