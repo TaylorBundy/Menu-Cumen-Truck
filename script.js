@@ -6,22 +6,14 @@ const page = document.querySelector('#page a');
 const metaContent = document.querySelector('meta[name="description"]');
 const ContMeta = 'Cumen Truck ofrece una deliciosa variedad de comidas rápidas, incluyendo hamburguesas, tacos y panchos, elaborados con ingredientes frescos y de calidad. Disfruta de opciones como la Hamburguesa de Cordero con cebolla caramelizada y alioli, o el Taco Veggie con verduras salteadas, todo a precios accesibles. ¡El buen sabor te espera en Cumen Truck!';
 
-/* const precios = [
-    {name: 'burguer', valor: '6500'},
-    {name: 'cordero', valor: '9000'},
-    {name: 'pollo', valor: '5500'},
-    {name: 'choritaco', valor: '4500'},
-    {name: 'trucha', valor: '5000'},
-    {name: 'veggie', valor: '4000'},
-    {name: 'pancho', valor: '4000'},
-    {name: 'fritas', valor: '4000'}
-  ]; */
-
 //definimos constante plataforma
 const plataforma = navigator.userAgent;
 
 window.onload = function() {
-    cargarImg();
+    //cargarImg();
+    //if (plataforma.includes('Android')) {
+        //creaTop();
+    //}
     metaContent.content = ContMeta;
     //console.log(metaContent.content);
     //console.log(document.querySelector('meta[name="description"]').content);
@@ -36,12 +28,13 @@ window.onload = function() {
     //dentro del array "precios".
     //una vez localizado el ID del elemento, dentro del array PRICE, colocamos el valor del mismo
     //dentro del "TEXTCONTENT" del elemento.
-    price.forEach((element) => {
-    (async () => {
-        const descripcion = await buscarDescripcion2(element.id.toLowerCase(), 'precios', 'precios'); // Cambiar a otro identificador para probar
-        element.textContent = '$' + descripcion;
-      })();
-    });
+
+    //price.forEach((element) => {
+    //(async () => {
+        //const descripcion = await buscarDescripcion2(element.id.toLowerCase(), 'precios', 'precios'); // Cambiar a otro identificador para probar
+        //element.textContent = '$' + descripcion;
+      //})();
+    //});
 
     /* price.forEach((element) => {
         const precioId = element.id.toLowerCase();
@@ -62,7 +55,7 @@ window.onload = function() {
         page.textContent = 'Comidas';
         page.href = 'index.html';
     }
-}
+};
 
 //document.body.onload = cargarImg;
 
@@ -82,7 +75,7 @@ function cargarImg(){
     var destino = document.querySelectorAll(".menu-item");
     //var destino = elem;
     if (destino == undefined)
-        alert("No existe el bloque destino")
+        alert("No existe el bloque destino");
     else{
         for (let i = 0; i < destino.length; i++) {
             var nodoDivImg = document.createElement("div");
@@ -100,10 +93,50 @@ function cargarImg(){
     }
 }
 
+function creaTop(){
+    if (location.href.includes('index') && window.location.pathname.includes('index') || location.href.includes('bebidas') && window.location.pathname.includes('bebidas'))
+        var destino = document.querySelector("main");
+    else {
+        destino = document.querySelector(".container");
+    }
+    if (destino == undefined)
+        alert("No existe el bloque destino");
+    else{
+        var nodoTop = document.createElement("div");
+        nodoTop.className = 'top';
+        destino.appendChild(nodoTop);
+        var nodo1 = document.querySelector('.top');
+        var nodoButton = document.createElement("button");
+        nodoButton.id = 'myBtn';
+        nodoButton.addEventListener('click' , topFunction);
+        nodo1.appendChild(nodoButton);
+
+        /* if (location.href.includes('index') && window.location.pathname.includes('index') || location.href.includes('bebidas') && window.location.pathname.includes('bebidas')) {
+            var nodoTop = document.createElement("div");
+            nodoTop.className = 'top';
+            destino.appendChild(nodoTop);
+            var nodo1 = document.querySelector('.top');
+            var nodoButton = document.createElement("button");
+            nodoButton.id = 'myBtn';
+            nodoButton.addEventListener('click' , topFunction);
+            nodo1.appendChild(nodoButton);
+        } else if (location.href.includes('about') && window.location.pathname.includes('about')) {
+            nodoTop = document.createElement("div");
+            nodoTop.className = 'top';
+            destino.appendChild(nodoTop);
+            nodo1 = document.querySelector('.top');
+            nodoButton = document.createElement("button");
+            nodoButton.id = 'myBtn';
+            nodoButton.addEventListener('click' , topFunction);
+            nodo1.appendChild(nodoButton);
+        } */
+    }
+}
+
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
 const hahaha = document.getElementById('jaja');
-const todosss = document.querySelectorAll('div:not(.menu-container), .menu-section .menu-item');
+const todosss = document.querySelectorAll('div:not(.menu-container), header p, .menu-section');
 let tiene = '';
 
 todosss.forEach(element => {
@@ -117,14 +150,14 @@ todosss.forEach(element => {
             } else {
                 //console.log('no');
             }
-        })
+        });
     }
 });
 
 
 
 if (plataforma.includes('Win')) {
-    document.addEventListener('DOMContentLoaded', () => {
+    //document.addEventListener('DOMContentLoaded', () => {
         menuToggle.addEventListener('click', () => {
             tiene = menu.classList.value;
             if (tiene === 'menu active') {
@@ -133,19 +166,20 @@ if (plataforma.includes('Win')) {
                 menu.classList.add('active');
             }
         });
-    });
+    //});
 } else if (plataforma.includes('Android')) {
-    menu.classList.add('active');
-    if (window.location.pathname.includes('index')) {
-        window.onscroll = function() {scrollFunction()};
-    } else if (window.location.pathname.includes('bebidas')) {
-        window.onscroll = function() {scrollFunction()};
-    } else if (window.location.pathname.includes('about')) {
-        window.onscroll = function() {scrollFunction2()};
-        
-    }   
-    console.log('hola'); 
-};
+
+    setTimeout(() => {
+        menu.classList.add('active');
+        if (window.location.pathname.includes('index')) {
+            window.onscroll = function() {scrollFunction();};
+        } else if (window.location.pathname.includes('bebidas')) {
+            window.onscroll = function() {scrollFunction();};
+        } else if (window.location.pathname.includes('about')) {
+            window.onscroll = function() {scrollFunction();};
+        }
+    }, 500);
+}
 
 async function hiddde(hg) {
     if (plataforma.includes('Win')) {
@@ -180,12 +214,6 @@ async function hiddde(hg) {
     }
 }
 
-function estado(){
-
-}
-
-const mybutton = document.getElementById("myBtn");
-const topp = document.querySelector('.top');
 let a = '';
 let b = '';
 let scrolll = '';
@@ -199,8 +227,10 @@ const TargetHeight = document.documentElement.offsetHeight - window.innerHeight;
 //window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
+    const mybutton = document.getElementById("myBtn");
+    const topp = document.querySelector('.top');
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    scrolll = this.scrollY;
+    scrolll = window.scrollY;
     mybutton.style.display = "block";
     //const scrollPosition = window.scrollY + window.innerHeight;
     //const bottomPosition = document.documentElement.scrollHeight;
@@ -238,6 +268,7 @@ function isBottomOfPage() {
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
+    //const mybutton = document.getElementById("myBtn");
     //document.body.scrollTop = 0; // For Safari
     //document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     if ('scrollTo' in window) { // Verifica si el navegador soporta scrollTo
@@ -287,32 +318,32 @@ function esMovil() {
 }
 let elemID = '';
 let classi = '';
-if (esMovil()) {
-    document.addEventListener('DOMContentLoaded', () => {
+
+document.addEventListener('DOMContentLoaded', () => {
+    cargarImg();
+    price.forEach((element) => {
+        (async () => {
+            const descripcion = await buscarDescripcion2(element.id.toLowerCase(), 'precios', 'precios'); // Cambiar a otro identificador para probar
+            element.textContent = '$' + descripcion;
+            })();
+    });
+    if (esMovil()) {
+        //if (plataforma.includes('Android')) {
+            creaTop();
+        //}
+        const mybutton = document.getElementById("myBtn");
         const menuItems = document.querySelectorAll('.menu-item');
         const detailView = document.createElement('div');
         detailView.id = 'details';
-        detailView.className = 'detail-view';
-        //detailView.classList.add('detail-view');
-        //document.body.appendChild(detailView);
-        document.querySelector('main').appendChild(detailView);
-        //const logo = document.createElement('img');
-        //logo.setAttribute("src", "Imagenes/logo-transparente.webp");
-        //logo.id = 'img-item-0';
-        //logo.className = 'cococ';
-        //document.querySelector('main .detail-view').appendChild(logo);
+        detailView.className = 'detail-view';        
+        document.querySelector('main').appendChild(detailView);        
 
         menuItems.forEach((item, index) => {
-
-            item.addEventListener('click', () => {
-                //ejecutarParaElementos(menuItems);
-
+            item.addEventListener('click', () => {                
                 // Calcular la posición del artículo
                 const rect = item.getBoundingClientRect();
                 const positionX = rect.left + window.scrollX;
-                const positionY = rect.top + window.scrollY;
-                //console.log(rect.left);
-                //console.log(rect.top);
+                const positionY = rect.top + window.scrollY;                
 
                 // Establecer el estilo de `detailView` para que coincida
                 detailView.style.left = `${positionX}px`;
@@ -323,32 +354,16 @@ if (esMovil()) {
 
                 // Forzar un reflow para registrar el estado inicial
                 detailView.offsetHeight;
-
-                //if (detailView.style.visibility == 'visible') {
-                    //return;
-                //} else {
-                    //console.log(item.id);                
+                
 
                 for (let c = 0; c < menuItems.length; c++) {
-                    var menuclass = menuItems[c];                    
+                    var menuclass = menuItems[c];
                     if (menuclass.classList.value === 'menu-item hidden') {
                         menuclass.classList.remove('hidden');
                     } else {
                         item.classList.add('hidden');
-                    }                    
+                    }
                 }
-                    //console.log(item.classList);
-
-                //}
-
-
-
-                //setTimeout(() => {
-                    // Ocultar el artículo
-                    //item.classList.add('hidden');
-                //}, 300);
-                //requestAnimationFrame(() => {
-
 
                 setTimeout(() => {
                     item.ontransitionend = (evento) => {
@@ -382,38 +397,29 @@ if (esMovil()) {
 
                 // Manejar el botón "Volver"
                 const backButton = detailView.querySelector('.back-button');
-                backButton.addEventListener('click', () => {
-                    // Animar `detailView` hacia la derecha
-                    //detailView.classList.remove('active');
-                    //detailView.style.transform = 'scale(0)';
+                backButton.addEventListener('click', () => {                    
                     if (lalalala(detailView) > 0) {
                         detailView.style.transform = 'scale(0)';
                     } else {
                         detailView.style.transform = 'scale(1)';
                     }
-                    detailView.classList.replace('active', 'final');
-                    //console.log(window.getComputedStyle(detailView).transform);
-                    //lalalala(detailView);
+                    detailView.classList.replace('active', 'final');                    
 
                     setTimeout(() => {
                         detailView.ontransitionend = (evento) => {
-                            if (evento.propertyName === 'transform' && detailView.classList.contains('final')) { // Asegura que estamos escuchando transform
-                                //console.log('La transición de transform ha terminado.');
-                                detailView.classList.remove('final');
-                            //detailView.classList.add('active');
-                            //detailView.style.transform = 'scale(1)';
-                            detailView.innerHTML = ''; // Limpia el contenido
-                        item.classList.remove('hidden'); // Vuelve a mostrar el elemento
+                            if (evento.propertyName === 'transform' && detailView.classList.contains('final')) { // Asegura que estamos escuchando transform                                
+                                detailView.classList.remove('final');                                
+                                detailView.innerHTML = ''; // Limpia el contenido
+                                item.classList.remove('hidden'); // Vuelve a mostrar el elemento
                             }
                         };
                     },300);
                 });
 
             });
-        });
-    });
-
-}
+        });    
+    }
+});
 
 function lalalala(ele){
     const estilo = window.getComputedStyle(ele);
@@ -475,62 +481,4 @@ function detectarBoton(event){
      else
 		alert("El botón del ratón pulsado fue el izquierdo");
 
-}
-
-function scrollFunction2() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      scrolll = document.scrollY;
-      mybutton.style.display = "block";
-      //const scrollPosition = window.scrollY + window.innerHeight;
-      //const bottomPosition = document.documentElement.scrollHeight;
-      //var a = document.documentElement.scrollTop;
-      //var b = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      //console.log(a);
-      //console.log(document.documentElement.clientHeight);
-      //scrolll = this.scrollY;
-      //a = document.body.offsetHeight || document.documentElement.offsetHeight;
-      //b = a - screen.height;
-  
-      if (isBottomOfPage2()) {
-      //if (scrollPosition >= bottomPosition) {
-      //if (b == scrolll) {
-          topp.style.bottom = 85 + 'px';
-      } else if (scrolll <= Math.max(document.documentElement.scrollHeight) - window.innerHeight) {
-          final = inicios - (TargetHeight - scrolll);
-          if (final > target && final <= inicios) {
-          //console.log(Math.max(target,final) + 'px');
-          topp.style.bottom = Math.max(target,final) + 'px';
-          } else {
-              topp.style.bottom = 20 + 'px';
-              //console.log('llegamos a 20');
-          }
-      } else {
-        //mybutton.style.display = "none";  
-      }
-    } else {
-      mybutton.style.display = "none";
-    }
-  };
-
-function isBottomOfPage2() {
-    //return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight);
-    return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight;
-}
-
-function topFunction2() {
-    //document.body.scrollTop = 0; // For Safari
-    //document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    if ('scrollTo' in window) { // Verifica si el navegador soporta scrollTo
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    } else {
-        // Fallback para navegadores más antiguos
-        let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-        if (currentScroll > 0) {
-            window.requestAnimationFrame(topFunction2);
-            window.scrollTo(0, currentScroll - currentScroll / 8); // Efecto suave manual
-        }
-    }
 }
