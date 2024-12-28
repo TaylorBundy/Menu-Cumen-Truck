@@ -94,7 +94,7 @@ function cargarImg(){
 }
 
 function creaTop(){
-    if (document.title.includes('Carta') || location.href.includes('index') || window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas'))
+    if (window.document.title.includes('Carta') || location.href.includes('index') || window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas'))
         var destino = document.querySelector("main");
     else {
         destino = document.querySelector(".container");
