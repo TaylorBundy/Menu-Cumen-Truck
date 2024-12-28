@@ -468,6 +468,10 @@ footer a:hover {
         /* margin: 0; */
     }
 
+    body.bebidas h3 {
+        display: block;
+    }
+
     .back-button .btnClose {
         background-color: #333333eb;
         border: 1px solid #333;

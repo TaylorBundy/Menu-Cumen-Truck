@@ -7,6 +7,10 @@
 		"trucha" : "5000",		
 		"veggie" : "4000",		
 		"pancho" : "4000",		
-		"fritas" : "4000"
+		"fritas" : "4000",
+		"gaseosa" : "3000",
+		"saborizada" : "2500",
+		"agua" : "2500",
+		"cerveza" : "3000"
 	}
 }
