@@ -353,16 +353,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 detailView.style.transform = 'scale(0)';
 
                 // Forzar un reflow para registrar el estado inicial
-                detailView.offsetHeight;
+                //detailView.offsetHeight;
                 
 
                 for (let c = 0; c < menuItems.length; c++) {
                     var menuclass = menuItems[c];
                     if (menuclass.classList.value === 'menu-item hidden') {
                         menuclass.classList.remove('hidden');
-                    } else {
+                    } else if (menuclass.className != 'menu-item hidden') {
                         item.classList.add('hidden');
-                    }
+                    }                    
                 }
 
                 setTimeout(() => {
