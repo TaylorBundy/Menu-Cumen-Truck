@@ -171,7 +171,7 @@ if (plataforma.includes('Win')) {
 
     setTimeout(() => {
         menu.classList.add('active');
-        if (window.location.pathname.includes('index')) {
+        if (window.location.pathname.includes('index') || window.location.pathname.includes('Menu-Cumen-Truck')) {
             window.onscroll = function() {scrollFunction();};
         } else if (window.location.pathname.includes('bebidas')) {
             window.onscroll = function() {scrollFunction();};
