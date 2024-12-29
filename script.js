@@ -94,7 +94,7 @@ function cargarImg(){
 }
 
 function creaTop(){
-    if (location.href.includes('Menu-Cumen-Truck') || location.href.includes('index') || window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas'))
+    if (location.href.includes('Menu-Cumen-Truck') || location.href.includes('index') || window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas') || window.location.pathname.includes('Menu-Cumen-Truck'))
         var destino = document.querySelector("main");
     else {
         destino = document.querySelector(".container");
