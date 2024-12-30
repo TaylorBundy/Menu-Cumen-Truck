@@ -358,7 +358,8 @@ footer a:hover {
 
     .menu.active {
         opacity: 0.8;
-        width: 30%;
+        /* width: 30%; */
+        width: fit-content;
     }
 
     .menu a {
@@ -383,7 +384,7 @@ footer a:hover {
         transition: transform 0.5s ease-in-out;
         /* transition: transform 0.3s ease, opacity 0.3s ease; */
         /* transform: scale(0); */
-        
+
     }
 
     .menu-item.hidden {
@@ -393,22 +394,27 @@ footer a:hover {
         /* transition: transform 0.8s ease-in-out; */
         transform: scale(0);
         /* transition: transform 0.5s ease, opacity 0.5s ease; */
-        /* transition: transform 0.3s ease, opacity 0.3s ease; */        
+        /* transition: transform 0.3s ease, opacity 0.3s ease; */
         /* visibility: hidden; */
     }
 
     .detail-view {
         /* display: none; */
+        display: inline-flex;
+        flex-direction: column;
         visibility: hidden;
         position: absolute;
         /* opacity: 0; */
         /* transform: translateX(100%); */
-        background-image: radial-gradient(#ffb931, #ff6100);
+        /* background-image: radial-gradient(#ffb931, #ff6100); */
+        background-image: url('Imagenes/fondo-img.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
         border-radius: 5px;
         /* clip-path: path("M100,10 C180,10 412,10 452,100 C452,180 452,412 360,452 C180,452 40,452 10,360 C10,180 10,40 100,10 Z"); */
         text-align: center;
         /* width: 100%; */
-        /* transition: opacity 0.3s ease; */        
+        /* transition: opacity 0.3s ease; */
         transform-origin: center center; /* Asegura que el encogimiento ocurra desde el centro */
         transition: transform 0.5s ease-in-out;
         /* transition: transform 0.3s ease-in-out, opacity 0.3s ease; */
@@ -445,6 +451,59 @@ footer a:hover {
         /* opacity: 0; */
         visibility: visible;
         transform: scale(0);
+    }
+
+    .detail-view .descContent {
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        width: 100%;
+        height: 85%;
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        /* margin-top: auto; */
+        margin: 10px auto auto auto;
+    }
+
+    .descContent h2 {
+        position: relative;
+        width: 100%;
+        /* height: 20%; */
+        /* top: 5px; */
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        line-height: 30px;
+        text-shadow: 1px 1px 1px rgba(173, 241, 84, 0.6);
+    }
+
+    .descContent h1 {
+        color: #333;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20px;
+        text-shadow: 1px 2px 1px rgba(75, 75, 75, 0.6);
+    }
+
+    .descripcion {
+        position: relative;
+        width: 80%;
+        /* height: 80%; */
+        display: table;
+        /* top: 0; */
+        /* bottom: 0; */
+        /* left: 0; */
+        /* right: 0; */
+        /* margin: auto; */
+        margin: 10px auto auto auto;
+    }
+
+    .descripcion p {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 
     .detail-view .FondoImg {
@@ -508,8 +567,9 @@ footer a:hover {
         width: 42px;
         height: 42px;
         right: 2%;
-        top: 0;
-        bottom: 0;        
+        /* top: 0; */
+        top: 75%;
+        /* bottom: 0; */
         margin: auto;
     }
 
@@ -521,18 +581,9 @@ footer a:hover {
         /* margin: 0; */
     }
 
-    .descripcion {        
-        position: relative;
-        width: 80%;
-        height: auto;        
-        top: 0;
-        bottom: 0;
-        margin: auto;
-    }    
-
-    .descripcion:empty::before {
-        position: absolute;
-    }
+    /* .descripcion:empty::before { */
+        /* position: absolute; */
+    /* } */
 
     .menu-item .price {
         /* text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6); */
@@ -555,7 +606,7 @@ footer a:hover {
     }
 
     .menu-item .Burguer, .menu-item .Cordero, .menu-item .Choritaco, .menu-item .Trucha,
-    .menu-item .Veggie, .menu-item .Pancho, .menu-item .Fritas, .menu-item .Pollo{
+    .menu-item .Veggie, .menu-item .Pancho, .menu-item .Fritas, .menu-item .Pollo, .menu-item .ChoriBurguer{
         display: none;
     }
 

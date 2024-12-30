@@ -46,14 +46,14 @@ window.onload = function() {
 
     //console.log(location.href);
     if (page.textContent == 'Comidas') {
-        page.textContent = 'Bebidas';
-        page.href = 'bebidas.html';
+        //page.textContent = 'Bebidas';
+        //page.href = 'bebidas.html';
     } else if (page.textContent == 'Bebidas') {
-        page.textContent = 'Comidas';
-        page.href = 'index.html';
+        //page.textContent = 'Comidas';
+        //page.href = 'index.html';
     } else if (location.href.includes('about') && window.location.pathname.includes('about')) {
-        page.textContent = 'Comidas';
-        page.href = 'index.html';
+        //page.textContent = 'Comidas';
+        //page.href = 'index.html';
     }
 };
 
@@ -96,7 +96,7 @@ function cargarImg(){
 function creaTop(){
     if (location.href.includes('Menu-Cumen-Truck') || location.href.includes('index') || window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas') || window.location.pathname.includes('Menu-Cumen-Truck'))
         var destino = document.querySelector("main");
-    else {
+    else if (window.location.pathname.includes('about')) {
         destino = document.querySelector(".container");
     }
     if (destino == undefined)
@@ -381,9 +381,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Mostrar información detallada
                 const detailContent = `
                     <img src="Imagenes/logo-transparente.webp" alt="" id="FondoImg" class="FondoImg">
-                    <h2>${item.querySelector('h3').textContent}</h2>
-                    <p>${item.querySelector('p:not(.price)').textContent}</p>
-                    <p name="text" id="descr" class="descripcion"></p>
+                    <div class="descContent">
+                        <h2>${item.querySelector('h3').textContent}</h2>
+                        <!-- <p>${item.querySelector('p:not(.price)').textContent}</p> -->
+                        <div class="descripcion">
+                            <!-- <p name="text" id="descr" class="descripcion"></p> -->
+                            <p id="descr"></p>
+                        </div>
+                        <h1>${item.querySelector('.price').textContent}</h1>
+                    </div>
                     <button class="back-button"><img src="Imagenes/close.webp" alt="" id="btnClose" class="btnClose"></button>
                 `;
                 detailView.innerHTML = detailContent;

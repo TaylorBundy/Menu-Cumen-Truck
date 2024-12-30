@@ -1,14 +1,14 @@
 {
 	"precios": {		
 		"burguer" : "6500",
-		"cordero" : "9000",		
+		"cordero" : "9500",		
 		"pollo" : "5500",		
-		"choritaco" : "4500",
+		"choritaco" : "5500",
 		"choriburguer" : "9000",				
-		"trucha" : "5000",		
+		"trucha" : "5500",		
 		"veggie" : "4000",		
 		"pancho" : "4000",		
-		"fritas" : "4000",
+		"fritas" : "4500",
 		"gaseosa" : "3000",
 		"saborizada" : "2500",
 		"agua" : "2500",

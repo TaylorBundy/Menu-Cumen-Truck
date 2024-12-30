@@ -263,7 +263,8 @@ footer a:hover {
 
     .menu.active {
         opacity: 0.8;
-        width: 30%;
+        /* width: 30%; */
+        width: fit-content;
     }
 
     .menu a {
@@ -348,6 +349,9 @@ footer a:hover {
 
     .hero {
         padding: 5px;
+        background-image: url('Imagenes/about-baja.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .content {

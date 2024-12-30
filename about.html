@@ -4,77 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cumen Truck!">
-    <link rel="shortcut icon" href="Imagenes/favicon.ico">
+    <link rel="shortcut icon" href="Imagenes/favicon.webp">
+    <link rel="preload" as="image" href="Imagenes/about-baja.webp" fetchpriority="hight">
     <title>Sobre Nosotros - Cumen Truck</title>
     <!-- <script type="text/javascript" src="script.js" defer></script> -->
     <link rel="stylesheet" href="styles2.css"> <!-- Asegúrate de enlazar tu CSS -->
     <!-- <link rel="stylesheet" href="styles.css"> -->
-    <!-- <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .hero img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-
-        .content {
-            margin-top: 20px;
-        }
-
-        .content h2 {
-            color: #444;
-        }
-
-        .team {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .team-member {
-            text-align: center;
-            flex: 1 1 calc(33.333% - 20px);
-            max-width: calc(33.333% - 20px);
-        }
-
-        .team-member img {
-            border-radius: 50%;
-            max-width: 150px;
-            margin-bottom: 10px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            background: #333;
-            color: #fff;
-            margin-top: 20px;
-        }
-    </style> -->
 </head>
 <body>
     <header>
@@ -86,12 +21,12 @@
             <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
             <nav class="menu">
                 <ul>
-                    <!-- <li id="page"><a href="index.html">Comidas</a></li> -->
+                    <li id="page"><a href="index.html">Comidas</a></li>
                     <!-- <li><a href="bebidas.html">Bebidas</a></li> -->
                     <!-- <li><a href="about.html">Nosotros</a></li> -->
                     <!-- <li><a href="#contacto">Contacto</a></li> -->
-                    <li id="page"><a href="about.html">Nosotros</a></li>
-                    <li><a href="bebidas.html">Bebidas</a></li>
+                    <!-- <li id="page"><a href="about.html">Nosotros</a></li> -->
+                    <!-- <li><a href="bebidas.html">Bebidas</a></li> -->
                     <!-- <li><a href="about.html">Nosotros</a></li> -->
                 </ul>
             </nav>
@@ -122,28 +57,28 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="Imagenes/team/taylor.webp" alt="Coordinador">
+                    <img src="Imagenes/team/juan-carlos.webp" alt="Coordinador">
                     <div class="info">
                         <h3>Juan Carlos Barbosa</h3>
-                        <p>Coordinador de operaciones</p>
+                        <p>Fundador y chef secundario</p>
                     </div>
                 </div>
                 <div class="team-member">
                     <img src="Imagenes/team/taylor.webp" alt="Marketing">
                     <div class="info">
                         <h3>Diego Martín Barbosa</h3>
-                        <p>Responsable de marketing</p>
+                        <p>Supervisor de Cocina</p>
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
     <footer>
         <p>Síguenos en:</p>
         <a href="https://www.facebook.com/cumen.truck" target="_blank"><img src="Imagenes/facebook.svg" alt="Facebook" class="ImgSocial" id="Facebook" onmouseover="Titulos()"></a>
         <a href="https://www.instagram.com/cumen.truck/" target="_blank"><img src="Imagenes/instagram.webp" alt="Instagram" class="ImgSocial" id="Instagram" onmouseover="Titulos()"></a>
-    </footer>    
-    <script>        
+    </footer>
+    <script>
         function cargarYEjecutarFuncion() {
             const script = document.createElement('script');
             script.src = 'script.js';
@@ -161,8 +96,8 @@
                 console.error('No se pudo cargar el script.');
             };
             document.head.appendChild(script);
-        }        
+        }
         cargarYEjecutarFuncion();        
-    </script>    
+    </script>
 </body>
 </html>
