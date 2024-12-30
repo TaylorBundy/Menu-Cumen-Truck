@@ -94,7 +94,8 @@ function cargarImg(){
 }
 
 function creaTop(){
-    if (location.href.includes('Menu-Cumen-Truck') || location.href.includes('index') || window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas') || window.location.pathname.includes('Menu-Cumen-Truck'))
+    //if (location.href.includes('Menu-Cumen-Truck') || location.href.includes('index') || window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas') || window.location.pathname.includes('Menu-Cumen-Truck'))
+    if (location.href.includes('Menu-Cumen-Truck') && location.href.includes('index') || window.location.pathname.includes('Menu-Cumen-Truck') && window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas'))
         var destino = document.querySelector("main");
     else if (window.location.pathname.includes('about')) {
         destino = document.querySelector(".container");
