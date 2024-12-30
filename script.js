@@ -15,46 +15,18 @@ window.onload = function() {
         //creaTop();
     //}
     metaContent.content = ContMeta;
-    //console.log(metaContent.content);
-    //console.log(document.querySelector('meta[name="description"]').content);
-    //console.log(navigator.userAgent);
-    //var parser = new UAParser();
-    //console.log(parser.getResult());
-    //alert(parser.getResult().browser.name + ' - ' + parser.getResult().browser.version);
-    //alert('width: ' + screen.width + ' - height: ' + screen.height);
-
-
-    //por cada elemento dentro de la constante "price", realizamos la busqueda del "id"
-    //dentro del array "precios".
-    //una vez localizado el ID del elemento, dentro del array PRICE, colocamos el valor del mismo
-    //dentro del "TEXTCONTENT" del elemento.
-
-    //price.forEach((element) => {
-    //(async () => {
-        //const descripcion = await buscarDescripcion2(element.id.toLowerCase(), 'precios', 'precios'); // Cambiar a otro identificador para probar
-        //element.textContent = '$' + descripcion;
-      //})();
-    //});
-
-    /* price.forEach((element) => {
-        const precioId = element.id.toLowerCase();
-        const result = precios.find(({ name }) => name === precioId);
-        if (result) {
-            element.textContent = '$' + result.valor;
-        }
-    }); */
 
     //console.log(location.href);
-    if (page.textContent == 'Comidas') {
+    //if (page.textContent == 'Comidas') {
         //page.textContent = 'Bebidas';
         //page.href = 'bebidas.html';
-    } else if (page.textContent == 'Bebidas') {
+    //} else if (page.textContent == 'Bebidas') {
         //page.textContent = 'Comidas';
         //page.href = 'index.html';
-    } else if (location.href.includes('about') && window.location.pathname.includes('about')) {
+    //} else if (location.href.includes('about') && window.location.pathname.includes('about')) {
         //page.textContent = 'Comidas';
         //page.href = 'index.html';
-    }
+    //}
 };
 
 //document.body.onload = cargarImg;
@@ -95,7 +67,8 @@ function cargarImg(){
 
 function creaTop(){
     //if (location.href.includes('Menu-Cumen-Truck') || location.href.includes('index') || window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas') || window.location.pathname.includes('Menu-Cumen-Truck'))
-    if (location.href.includes('Menu-Cumen-Truck') && location.href.includes('index') || window.location.pathname.includes('Menu-Cumen-Truck') && window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas'))
+    //if (location.href.includes('Menu-Cumen-Truck') && location.href.includes('index') || window.location.pathname.includes('Menu-Cumen-Truck') && window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas'))
+    if (location.href.includes('index') && window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas'))
         var destino = document.querySelector("main");
     else if (window.location.pathname.includes('about')) {
         destino = document.querySelector(".container");
@@ -111,26 +84,6 @@ function creaTop(){
         nodoButton.id = 'myBtn';
         nodoButton.addEventListener('click' , topFunction);
         nodo1.appendChild(nodoButton);
-
-        /* if (location.href.includes('index') && window.location.pathname.includes('index') || location.href.includes('bebidas') && window.location.pathname.includes('bebidas')) {
-            var nodoTop = document.createElement("div");
-            nodoTop.className = 'top';
-            destino.appendChild(nodoTop);
-            var nodo1 = document.querySelector('.top');
-            var nodoButton = document.createElement("button");
-            nodoButton.id = 'myBtn';
-            nodoButton.addEventListener('click' , topFunction);
-            nodo1.appendChild(nodoButton);
-        } else if (location.href.includes('about') && window.location.pathname.includes('about')) {
-            nodoTop = document.createElement("div");
-            nodoTop.className = 'top';
-            destino.appendChild(nodoTop);
-            nodo1 = document.querySelector('.top');
-            nodoButton = document.createElement("button");
-            nodoButton.id = 'myBtn';
-            nodoButton.addEventListener('click' , topFunction);
-            nodo1.appendChild(nodoButton);
-        } */
     }
 }
 
@@ -182,7 +135,7 @@ if (plataforma.includes('Win')) {
     }, 500);
 }
 
-async function hiddde(hg) {
+/* async function hiddde(hg) {
     if (plataforma.includes('Win')) {
         tiene = menu.classList.value;
         console.log(tiene);
@@ -213,7 +166,7 @@ async function hiddde(hg) {
     } else if (plataforma.includes('Android')) {
         //
     }
-}
+} */
 
 let a = '';
 let b = '';
@@ -233,28 +186,15 @@ function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     scrolll = window.scrollY;
     mybutton.style.display = "block";
-    //const scrollPosition = window.scrollY + window.innerHeight;
-    //const bottomPosition = document.documentElement.scrollHeight;
-    //var a = document.documentElement.scrollTop;
-    //var b = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    //console.log(a);
-    //console.log(document.documentElement.clientHeight);
-    //scrolll = this.scrollY;
-    //a = document.body.offsetHeight || document.documentElement.offsetHeight;
-    //b = a - screen.height;
 
-    if (isBottomOfPage()) {
-    //if (scrollPosition >= bottomPosition) {
-    //if (b == scrolll) {
+    if (isBottomOfPage()) {    
         topp.style.bottom = 85 + 'px';
     } else if (scrolll <= Math.max(document.documentElement.scrollHeight) - window.innerHeight) {
         final = inicios - (TargetHeight - scrolll);
-        if (final > target && final <= inicios) {
-        //console.log(Math.max(target,final) + 'px');
+        if (final > target && final <= inicios) {        
         topp.style.bottom = Math.max(target,final) + 'px';
         } else {
-            topp.style.bottom = 20 + 'px';
-            //console.log('llegamos a 20');
+            topp.style.bottom = 20 + 'px';            
         }
     }
   } else {
@@ -289,20 +229,13 @@ function topFunction() {
 
 
 
-function getAndroidVersion() {
+/* function getAndroidVersion() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const match = userAgent.match(/Android\s([0-9\.]+)/);
     return match ? match[1] : null; // Devuelve la versión o null si no es Android
-}
-
-/* const androidVersion = getAndroidVersion();
-
-if (androidVersion) {
-    console.log(`El dispositivo está ejecutando Android ${androidVersion}`);
-} else {
-    console.log("El dispositivo no está usando Android.");
 } */
-function ejecutarParaElementos(elementos) {
+
+/* function ejecutarParaElementos(elementos) {
     elementos.forEach(elemento => {
       if (elemento.classList.contains('hidden')) {
         console.log("El elemento está oculto. Saltando...");
@@ -311,10 +244,10 @@ function ejecutarParaElementos(elementos) {
       console.log("Procesando elemento visible:", elemento);
       // Resto del código para elementos visibles
     });
-  }
+  } */
 
 // Verifica si el dispositivo es móvil
-function esMovil() {
+function esMovil() {    
     return /Mobi|Android/i.test(navigator.userAgent);
 }
 let elemID = '';
@@ -322,29 +255,31 @@ let classi = '';
 
 document.addEventListener('DOMContentLoaded', () => {
     cargarImg();
+    //por cada elemento dentro de la constante "price", realizamos la busqueda del "id"
+    //dentro del array "precios".
+    //una vez localizado el ID del elemento, dentro del array PRICE, colocamos el valor del mismo
+    //dentro del "TEXTCONTENT" del elemento.
     price.forEach((element) => {
         (async () => {
             const descripcion = await buscarDescripcion2(element.id.toLowerCase(), 'precios', 'precios'); // Cambiar a otro identificador para probar
             element.textContent = '$' + descripcion;
             })();
     });
-    if (esMovil()) {
-        //if (plataforma.includes('Android')) {
-            creaTop();
-        //}
+    if (esMovil()) {        
+        creaTop();                
         const mybutton = document.getElementById("myBtn");
         const menuItems = document.querySelectorAll('.menu-item');
         const detailView = document.createElement('div');
         detailView.id = 'details';
-        detailView.className = 'detail-view';        
-        document.querySelector('main').appendChild(detailView);        
+        detailView.className = 'detail-view';
+        document.querySelector('main').appendChild(detailView);
 
         menuItems.forEach((item, index) => {
-            item.addEventListener('click', () => {                
+            item.addEventListener('click', () => {
                 // Calcular la posición del artículo
                 const rect = item.getBoundingClientRect();
                 const positionX = rect.left + window.scrollX;
-                const positionY = rect.top + window.scrollY;                
+                const positionY = rect.top + window.scrollY;
 
                 // Establecer el estilo de `detailView` para que coincida
                 detailView.style.left = `${positionX}px`;
@@ -355,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Forzar un reflow para registrar el estado inicial
                 //detailView.offsetHeight;
-                
+
 
                 for (let c = 0; c < menuItems.length; c++) {
                     var menuclass = menuItems[c];
@@ -363,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         menuclass.classList.remove('hidden');
                     } else if (menuclass.className != 'menu-item hidden') {
                         item.classList.add('hidden');
-                    }                    
+                    }
                 }
 
                 setTimeout(() => {
@@ -404,18 +339,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Manejar el botón "Volver"
                 const backButton = detailView.querySelector('.back-button');
-                backButton.addEventListener('click', () => {                    
+                backButton.addEventListener('click', () => {
                     if (lalalala(detailView) > 0) {
                         detailView.style.transform = 'scale(0)';
                     } else {
                         detailView.style.transform = 'scale(1)';
                     }
-                    detailView.classList.replace('active', 'final');                    
+                    detailView.classList.replace('active', 'final');
 
                     setTimeout(() => {
                         detailView.ontransitionend = (evento) => {
-                            if (evento.propertyName === 'transform' && detailView.classList.contains('final')) { // Asegura que estamos escuchando transform                                
-                                detailView.classList.remove('final');                                
+                            if (evento.propertyName === 'transform' && detailView.classList.contains('final')) { // Asegura que estamos escuchando transform
+                                detailView.classList.remove('final');
                                 detailView.innerHTML = ''; // Limpia el contenido
                                 item.classList.remove('hidden'); // Vuelve a mostrar el elemento
                             }
@@ -424,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
             });
-        });    
+        });
     }
 });
 
@@ -479,13 +414,20 @@ async function buscarDescripcion2(identificador, titu, archivo) {
     }
 }
 
-function detectarBoton(event){
-
-	if (event.button==2)
-		alert("El botón del ratón pulsado fue el derecho");
-	else if (event.button==1)
-		alert("El botón del ratón pulsado fue el medio");
-     else
-		alert("El botón del ratón pulsado fue el izquierdo");
-
+function CargaAbout () {
+    if (window.location.pathname.includes('about') || location.href.includes('about')) {
+        const imgabout = document.querySelector('#about');
+        //const urrl = 'https://drive.google.com/thumbnail?id=1YZXo3GZ2YbBhlp6sXreHzNA2yd54bq8z&sz=w4000';
+        //cargamos la imagen si es WINDOWS en una resolucion de 2K
+        const urlAbout = 'https://drive.google.com/thumbnail?id=1jtZBdlz_Pzj1W_RU5xWxLn_-8CWtZBUB&sz=w2000';
+        imgabout.style.backgroundSize = 'cover';
+        imgabout.style.backgroundRepeat = 'no-repeat';
+        if (plataforma.includes('Android')) {
+            imgabout.src = 'Imagenes/about-baja.webp';
+            imgabout.alt = 'About-Baja';
+        } else if (plataforma.includes('Win')) {
+            imgabout.src = urlAbout;
+            imgabout.alt = 'About-2K';
+        }
+    }
 }

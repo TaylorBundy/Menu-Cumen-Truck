@@ -1,3 +1,5 @@
+/* Estilos CSS para Restaurante Gourmet */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,8 +12,14 @@ body {
 }
 
 header {
-    height: 132px;    
-    background-image: radial-gradient(#ffb931, #ff6100);    
+    height: 132px;
+    /* background-color: #f8b400;    */
+    /* background-color: #ff991f; */
+    background-image: radial-gradient(#ffb931, #ff6100);
+    /* background-image: url('Imagenes/logo-transparente.webp'); */
+    /* background-size: contain; */
+    /* background-repeat: no-repeat; */
+    /* color: white; */
     color: #c1ff72;
     text-align: center;
     padding: 1rem 0;
@@ -25,11 +33,14 @@ header {
     display: flex;
     justify-content: center;
     z-index: 5;
-    opacity: 0.3;    
+    opacity: 0.3;
+    /* height: 200px; */
 }
 
 .logo img {
-    position: relative;    
+    position: relative;
+    /* width: 300px; */
+    /* height: 200px; */
 }
 
 header h1 {
@@ -45,8 +56,10 @@ header p {
     margin-top: 0.5rem;
     position: relative;
     z-index: 7;
-    font-weight: bold;    
-    top: 57px;    
+    font-weight: bold;
+    /* top: -9px; */
+    top: 57px;
+    /* -webkit-text-stroke: 0.5px #333; */
     -webkit-text-stroke: 0.5px #7BA842;
     text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
 }
@@ -78,8 +91,18 @@ header p {
     display: none;
     flex-direction: column;
     width: 200px;
-    z-index: 10;    
+    z-index: 10;
+    /* opacity: 0; */
+    /* transition: opacity 0.3s ease, visibility 0.3s ease; */
+    /* visibility: hidden; */
 }
+
+/* Mostrar menú al pasar el mouse */
+/* .menu-container:hover .menu  {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+} */
 
 .menu ul {
     list-style: none;
@@ -254,6 +277,11 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* .ImgSocial {
+    display: flex;
+    justify-content: center;
+} */
+
 .ImgSocial {
     /* width: 20px; */
     width: 30px;
@@ -296,26 +324,26 @@ footer a:hover {
 }
 
 @media only screen and (min-width: 360px) and (max-width: 501px) and (orientation: portrait) {
-    header {
+    header {        
         height: 132px;
         border-radius: 8px;
         margin: 0 5px 0 5px;
         padding: 1rem 0;
     }
 
-    header p {
+    header p {        
         top: 57px;
     }
 
-    .logo {
+    .logo {        
         height: 100px;
-        opacity: 0.8;
+        opacity: 0.8;        
         animation: heartbeat2 1.5s ease-in-out 2;
     }
 
     .menu-container {
         position: fixed;
-        margin-right: 10px;
+        margin-right: 10px;        
         top: 0;
         right: 0;
         width: 100%;
@@ -324,60 +352,63 @@ footer a:hover {
     }
 
     .menu.active {
-        opacity: 0.8;
+        opacity: 0.8;        
         width: fit-content;
     }
 
     .menu a {
         font-size: 14px;
-        padding: 5px;
+        padding: 5px;        
     }
 
     .menu-section {
-        background-image: none;
+        background-image: none;        
         padding: 5px;
         gap: 5px;
     }
 
     .menu-item {
-        background-image: radial-gradient(#ffb931, #ff6100);
+        background-image: radial-gradient(#ffb931, #ff6100);        
         width: 100%;
         display: flex;
         flex-direction: column;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.5s ease-in-out;      
     }
 
-    .menu-item.hidden {
-        transform: scale(0);
+    .menu-item.hidden {        
+        transform: scale(0);        
     }
 
-    .detail-view {
+    .detail-view {        
         display: inline-flex;
         flex-direction: column;
         visibility: hidden;
-        position: absolute;
+        position: absolute;        
         background-image: url('Imagenes/fondo-img.webp');
         background-size: cover;
         background-repeat: no-repeat;
-        border-radius: 5px;
-        text-align: center;
+        border-radius: 5px;        
+        text-align: center;        
         transform-origin: center center; /* Asegura que el encogimiento ocurra desde el centro */
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.5s ease-in-out;        
         z-index: 5;
     }
 
     .detail-view.active {
         background-image: url('Imagenes/fondo-img.webp');
         background-size: cover;
-        background-repeat: no-repeat;
+        background-repeat: no-repeat;        
         display: inline-flex;
         flex-direction: column;
-        visibility: visible;
-        transition: transform 0.5s ease-in-out;
-    }    
+        visibility: visible;        
+        transition: transform 0.5s ease-in-out;        
+    }
 
-    .detail-view.exit,
-    .detail-view.final {
+    .detail-view.exit {        
+        transform: scale(0);        
+    }
+
+    .detail-view.final {        
         visibility: visible;
         transform: scale(0);
     }
@@ -387,13 +418,13 @@ footer a:hover {
         display: inline-flex;
         flex-direction: column;
         width: 100%;
-        height: 85%;
+        height: 85%;        
         margin: 10px auto auto auto;
     }
 
     .descContent h2 {
         position: relative;
-        width: 100%;
+        width: 100%;        
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 30px;
         font-weight: bold;
@@ -414,8 +445,8 @@ footer a:hover {
         position: relative;
         width: 80%;
         height: 80%;
-        display: table;
-        margin: auto;
+        display: table;        
+        margin: auto;        
     }
 
     .descripcion p {
@@ -432,7 +463,7 @@ footer a:hover {
         margin-right: auto;
         margin-left: auto;
         top: 8px;
-        opacity: 0.8;
+        opacity: 0.8;        
         animation: heartbeat 1.5s ease-in-out 10;
     }
 
@@ -440,7 +471,7 @@ footer a:hover {
         color: #c1ff72;
         -webkit-text-stroke: 1px #7BA842;
         text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
-        display: none;
+        display: none;        
     }
 
     body.bebidas h3 {
@@ -452,7 +483,7 @@ footer a:hover {
         border: 1px solid #333;
         border-radius: 50%;
         background-image: url('Imagenes/close.webp');
-        background-size: cover;
+        background-size: cover;        
         width: 100%;
         height: 100%;
         top: 0;
@@ -462,42 +493,40 @@ footer a:hover {
     }
 
     .back-button {
-        position: absolute;
-        display: flex;
+        position: absolute;        
+        display: flex;        
         background: none;
         border: none;
         outline: none;
-        opacity: 0.8;
+        opacity: 0.8;        
         width: 42px;
         height: 42px;
-        right: 2%;
-        top: 75%;
+        right: 2%;        
+        top: 75%;        
         margin: auto;
     }
 
     .menu-item p {
         font-weight: bold;
         text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
-        height: auto;
-    }
+        height: auto;        
+    }    
 
     .menu-item .price {        
-        color: white;
         text-shadow: none;
+        color: white;
     }
 
-    .menu-item .price,
-    .menu-item h3,
-    .menu-item p {
+    .menu-item .price, .menu-item h3, .menu-item p {
         border: 1px solid #f8b400;
-        margin: 0;
+        margin: 0;        
     }
 
     .menu-item img {
         position: relative;
-        display: block;
         height: auto;
         opacity: 0.8;
+        display: block;
     }
 
     .menu-item .Burguer, .menu-item .Cordero, .menu-item .Choritaco, .menu-item .Trucha,
@@ -506,70 +535,69 @@ footer a:hover {
     }
 
     .menu-item .FondoImg {
-        /* position: relative; */
-        /* opacity: 1; */
-        opacity: 0.3;
+        position: relative;
+        opacity: 1;        
         width: 100%;
         height: 315px;
-        /* margin-left: auto; */
-        /* margin-right: auto; */
-        margin: auto;
+        opacity: 0.3;
+        margin-left: auto;
+        margin-right: auto;        
     }
 
-    .menu-item .Img1,
+    .menu-item .Img1 {
+        position: absolute;
+        opacity: 1;
+        width: 348px;
+        height: 348px;
+        left: 0;
+        right: 0;
+        margin: auto;        
+    }
+
     .menu-item .Img2 {
         position: absolute;
+        opacity: 1;
         width: 348px;
-        height: 348px;
+        height: 348px;        
         left: 0;
         right: 0;
-        margin: auto;
-        opacity: 1;
+        margin: auto;        
     }
 
-    /* .menu-item .Img2 {
-        position: absolute;
-        opacity: 1;
-        width: 348px;
-        height: 348px;
-        left: 0;
-        right: 0;
-        margin: auto;
-    } */
-
-    .nodo-img-item img {
+    .nodo-img-item img {        
         animation: heartbeat 1.5s ease-in-out 4;
     }
 
 
     .top {
+        width: 100%;
         position: fixed;
         display: flex;
         justify-content: right;
-        width: 100%;
         bottom: 20px;
         z-index: 10;
-    }
+
+    }    
 
     #myBtn {
-        display: none;
-        position: relative;
-        right: 20px;
-        padding: 20px;
-        border: 1px solid #333;
-        border-radius: 50px;
-        /* outline: none; /* Remove outline */
-        background: #333333eb url('Imagenes/top.webp') no-repeat center/cover;
-        /* background-color: #333333eb; */
-        /* background-image: url('Imagenes/top.webp'); */
-        /* background-size: cover; */
-        color: white;
-        font-size: 18px;
+        display: none; /* Hidden by default */
+        position: relative; /* Fixed/sticky position */        
+        right: 20px; /* Place the button 30px from the right */        
+        border: 1px solid #333; /* Remove borders */
+        outline: none; /* Remove outline */        
+        background-color: #333333eb;
+        background-image: url('Imagenes/top.webp');
+        background-size: cover;
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 20px; /* Some padding */
+        border-radius: 50px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
         z-index: 10;
     }
 
     #myBtn:hover {
-        background-color: #555;
+        background-color: #555; /* Add a dark-grey background on hover */
     }
 
     footer {

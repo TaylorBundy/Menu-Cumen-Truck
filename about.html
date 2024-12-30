@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cumen Truck!">
-    <link rel="shortcut icon" href="Imagenes/favicon.webp">
-    <link rel="preload" as="image" href="Imagenes/about-baja.webp" fetchpriority="hight">
-    <title>Sobre Nosotros - Cumen Truck</title>
-    <!-- <script type="text/javascript" src="script.js" defer></script> -->
-    <link rel="stylesheet" href="styles2.css"> <!-- Asegúrate de enlazar tu CSS -->
-    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="shortcut icon" href="Imagenes/favicon.webp">    
+    <title>Sobre Nosotros - Cumen Truck</title>    
+    <link rel="stylesheet" href="styles2.css"> <!-- Asegúrate de enlazar tu CSS -->    
 </head>
 <body>
     <header>
@@ -34,7 +31,8 @@
     </header>
     <div class="container">
         <div class="hero">
-            <img src="Imagenes/about.webp" alt="Cumen Truck">
+            <!-- <img src="https://drive.google.com/thumbnail?id=1YZXo3GZ2YbBhlp6sXreHzNA2yd54bq8z&sz=w4000" alt="Cumen Truck"> -->
+            <img id="about" alt="Cumen Truck">
         </div>
         <div class="content">
             <h2>Nuestra Historia</h2>
@@ -50,23 +48,23 @@
             <p>Detrás de cada platillo hay un equipo apasionado y comprometido con la excelencia:</p>
             <div class="team">
                 <div class="team-member">
-                    <img src="Imagenes/team/taylor.webp" alt="Fundador">
+                    <img src="Imagenes/team/carmen-noemi.webp" alt="Fundador">
                     <div class="info">
-                        <h3>Carmen Cordero</h3>
+                        <a href="https://www.instagram.com/carmencorderook/" target="_blank"><h3>Carmen Cordero</h3></a>
                         <p>Fundador y chef principal</p>
                     </div>
                 </div>
                 <div class="team-member">
                     <img src="Imagenes/team/juan-carlos.webp" alt="Coordinador">
                     <div class="info">
-                        <h3>Juan Carlos Barbosa</h3>
+                        <a href="https://www.instagram.com/juancarlos.barbosa.562/" target="_blank"><h3>Juan Carlos Barbosa</h3></a>
                         <p>Fundador y chef secundario</p>
                     </div>
                 </div>
                 <div class="team-member">
-                    <img src="Imagenes/team/taylor.webp" alt="Marketing">
+                    <img src="Imagenes/team/diego-martin.webp" alt="Marketing">
                     <div class="info">
-                        <h3>Diego Martín Barbosa</h3>
+                        <a href="https://www.instagram.com/taylor_bundy/" target="_blank"><h3>Diego Martín Barbosa</h3></a>
                         <p>Supervisor de Cocina</p>
                     </div>
                 </div>
@@ -88,6 +86,12 @@
                 if (typeof scrollFunction === 'function') {
                     creaTop();
                     scrollFunction();
+                    //CargaAbout();
+                } else {
+                    console.error('La función no está definida.');
+                }
+                if (typeof CargaAbout === 'function') {                    
+                    CargaAbout();
                 } else {
                     console.error('La función no está definida.');
                 }
