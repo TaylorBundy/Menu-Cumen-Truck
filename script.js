@@ -75,7 +75,7 @@ function creaTop(){
     } */
     if (window.location.pathname.includes('about')) {
         var destino = document.querySelector(".container");
-    } else {        
+    } else {
         destino = document.querySelector("main");
     }
     if (destino == undefined)
@@ -113,29 +113,25 @@ todosss.forEach(element => {
     }
 });
 
-
-
 if (plataforma.includes('Win')) {
     //document.addEventListener('DOMContentLoaded', () => {
-        menuToggle.addEventListener('click', () => {
-            tiene = menu.classList.value;
-            if (tiene === 'menu active') {
-                menu.classList.remove('active');
-            } else {
-                menu.classList.add('active');
-            }
-        });
+    menuToggle.addEventListener('click', () => {
+        tiene = menu.classList.value;
+        if (tiene === 'menu active') {
+            menu.classList.remove('active');
+        } else {
+            menu.classList.add('active');
+        }
+    });
     //});
 } else if (plataforma.includes('Android')) {
-
     setTimeout(() => {
-        menu.classList.add('active');
-        if (window.location.pathname.includes('index') || window.location.pathname.includes('Menu-Cumen-Truck')) {
-            window.onscroll = function() {scrollFunction();};
-        } else if (window.location.pathname.includes('bebidas')) {
-            window.onscroll = function() {scrollFunction();};
-        } else if (window.location.pathname.includes('about')) {
-            window.onscroll = function() {scrollFunction();};
+        menu.classList.add('active');        
+        if (['index', 'Menu-Cumen-Truck', 'bebidas', 'about'].some(path => window.location.pathname.includes(path))) {            
+            window.onscroll = function () {
+                scrollFunction();
+                menuVisible2();
+            }
         }
     }, 500);
 }
@@ -192,14 +188,14 @@ function scrollFunction() {
     scrolll = window.scrollY;
     mybutton.style.display = "block";
 
-    if (isBottomOfPage()) {    
+    if (isBottomOfPage()) {
         topp.style.bottom = 85 + 'px';
     } else if (scrolll <= Math.max(document.documentElement.scrollHeight) - window.innerHeight) {
         final = inicios - (TargetHeight - scrolll);
-        if (final > target && final <= inicios) {        
+        if (final > target && final <= inicios) {
         topp.style.bottom = Math.max(target,final) + 'px';
         } else {
-            topp.style.bottom = 20 + 'px';            
+            topp.style.bottom = 20 + 'px';
         }
     }
   } else {
@@ -252,7 +248,7 @@ function topFunction() {
   } */
 
 // Verifica si el dispositivo es móvil
-function esMovil() {    
+function esMovil() {
     return /Mobi|Android/i.test(navigator.userAgent);
 }
 let elemID = '';
@@ -270,8 +266,14 @@ document.addEventListener('DOMContentLoaded', () => {
             element.textContent = '$' + descripcion;
             })();
     });
-    if (esMovil()) {        
-        creaTop();                
+    if (esMovil()) {
+        if (window.location.pathname.includes('about')) {
+            //
+        } else {
+            creaTop();
+        }
+
+        //creaTop();
         const mybutton = document.getElementById("myBtn");
         const menuItems = document.querySelectorAll('.menu-item');
         const detailView = document.createElement('div');
@@ -436,3 +438,21 @@ function CargaAbout () {
         }
     }
 }
+
+function menuVisible2(){
+    //const menu = document.querySelector(".menu");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        if (menu.classList.value === 'menu active') {
+            menu.classList.remove('active');
+        }
+        if (isBottomOfPage()) {
+            if (menu.classList.value === 'menu') {
+                menu.classList.add('active');
+            }
+        }
+    } else {
+        if (menu.classList.value === 'menu') {
+            menu.classList.add('active');
+        }
+    }
+};

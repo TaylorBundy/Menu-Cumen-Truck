@@ -13,7 +13,6 @@
         <div class="logo">
             <img src="Imagenes/logo-transparente.webp" alt="">
         </div>
-        <p>¡El buen sabor!</p>
         <!-- <h1>Sobre Nosotros</h1> -->
         <div class="menu-container">
             <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
@@ -51,22 +50,22 @@
                 <div class="team-member">
                     <img src="Imagenes/team/carmen-noemi.webp" alt="Fundador">
                     <div class="info">
-                        <a href="https://www.instagram.com/carmencorderook/" target="_blank"><h3 title="Visitar Instagram de Carmen Noemi Cordero">Carmen Cordero</h3></a>
-                        <p class="des">Fundador y chef principal</p>
+                        <a href="https://www.instagram.com/carmencorderook/" target="_blank"><h3>Carmen Cordero</h3></a>
+                        <p>Fundador y chef principal</p>
                     </div>
                 </div>
                 <div class="team-member">
                     <img src="Imagenes/team/juan-carlos.webp" alt="Coordinador">
                     <div class="info">
-                        <a href="https://www.instagram.com/juancarlos.barbosa.562/" target="_blank"><h3 title="Visitar Instagram de Juan Carlos Barbosa">Juan Carlos Barbosa</h3></a>
-                        <p class="des">Fundador y chef secundario</p>
+                        <a href="https://www.instagram.com/juancarlos.barbosa.562/" target="_blank"><h3>Juan Carlos Barbosa</h3></a>
+                        <p>Fundador y chef secundario</p>
                     </div>
                 </div>
                 <div class="team-member">
                     <img src="Imagenes/team/diego-martin.webp" alt="Marketing">
                     <div class="info">
-                        <a href="https://www.instagram.com/taylor_bundy/" target="_blank"><h3 title="Visitar Instagram de Diego Martín Barbosa">Diego Martín Barbosa</h3></a>
-                        <p class="des">Supervisor de Cocina</p>
+                        <a href="https://www.instagram.com/taylor_bundy/" target="_blank"><h3>Diego Martín Barbosa</h3></a>
+                        <p>Supervisor de Cocina</p>
                     </div>
                 </div>
             </div>
@@ -74,67 +73,83 @@
     </div>
     <footer>
         <div class="back">
-            <button id="myBtn2" title="Volver Atras"></button>
+            <button id="myBtn2" title="Go Back"></button>
         </div>
         <p>Síguenos en:</p>
         <a href="https://www.facebook.com/cumen.truck" target="_blank"><img src="Imagenes/facebook.svg" alt="Facebook" class="ImgSocial" id="Facebook" onmouseover="Titulos()"></a>
         <a href="https://www.instagram.com/cumen.truck/" target="_blank"><img src="Imagenes/instagram.webp" alt="Instagram" class="ImgSocial" id="Instagram" onmouseover="Titulos()"></a>
     </footer>
-    <script type="text/javascript" src="jquery.min.js"></script>
     <script>
-        const cargarYEjecutarFuncion = () => {
+        function cargarYEjecutarFuncion2() {
+            const script = document.createElement('script');
+            script.src = 'script.js';
+            //script.type = 'module';
+            script.onload = () => {
+                // La función del archivo se llama aquí después de cargar
+                if (typeof scrollFunction === 'function') {
+                    creaTop();
+                    scrollFunction();
+                    //CargaAbout();
+                } else {
+                    console.error('La función no está definida.');
+                }
+                if (typeof CargaAbout === 'function') {
+                    CargaAbout();
+                } else {
+                    console.error('La función no está definida.');
+                }
+            };
+            script.onerror = () => {
+                console.error('No se pudo cargar el script.');
+            };
+            document.head.appendChild(script);
+        }        
+        function cargarYEjecutarFuncion() {
             const script = document.createElement('script');
             script.src = 'script.js';
             script.onload = () => {
                 try {
-                    if (typeof creaTop === 'function') creaTop();
-                    if (typeof scrollFunction === 'function') scrollFunction();
-                    if (typeof CargaAbout === 'function') CargaAbout();
+                    if (typeof creaTop === 'function') {
+                        creaTop();                        
+                    } else {
+                        console.warn('scrollFunction no está definida o no es una función.');
+                    }
+                    if (typeof scrollFunction === 'function') {                        
+                        scrollFunction();
+                    } else {
+                        console.warn('scrollFunction no está definida o no es una función.');
+                    }
+                    if (typeof CargaAbout === 'function') {
+                        CargaAbout();
+                    } else {
+                        console.warn('CargaAbout no está definida o no es una función.');
+                    }
                 } catch (error) {
-                    console.error('Error al ejecutar funciones:', error);
+                    console.error('Ocurrió un error al ejecutar las funciones:', error);
                 }
             };
-            script.onerror = () => console.error('No se pudo cargar el script:', script.src);
+            script.onerror = () => {
+                console.error('No se pudo cargar el script:', script.src);
+            };
             document.head.appendChild(script);
-        };
-
-        const GoBack = () => {
-            //if (navigator.userAgent.includes('Android') && window.location.pathname.includes('about')) {
-            if (window.location.pathname.includes('about')) {
-                if (window.history.length > 1) window.history.back();
-                else console.log('No hay historial disponible.');
-            }
-        };
-
-        const isBottomOfPage2 = () => {
-            //return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight);
-            return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight;
-        };
-
-        const menuVisible = () => {
-            const menu = document.querySelector(".menu");
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                if (menu.classList.value === 'menu active') {
-                    menu.classList.remove('active');
-                }
-                if (isBottomOfPage2()) {
-                    if (menu.classList.value === 'menu') {
-                        menu.classList.add('active');
+        }
+        cargarYEjecutarFuncion();        
+    </script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript">
+        const GoBack = ()=> {
+            const plataforma = navigator.userAgent;
+            if (plataforma.includes('Android')) {
+                if (window.location.pathname.includes('about')) {
+                    if (window.history.length > 1) {
+                        window.history.back();
+                    } else {
+                        console.log('no hay');
                     }
                 }
-            } else {
-                if (menu.classList.value === 'menu') {
-                    menu.classList.add('active');
-                }
             }
-        };
-        const plataforma2 = navigator.userAgent;
-        if (plataforma2.includes('Android')) {
-            //window.addEventListener("scroll", menuVisible);
         }
-        document.getElementById("myBtn2").addEventListener("click", GoBack);
-        cargarYEjecutarFuncion();
-        //window.onscroll = menuVisible;
+        $("#myBtn2").click(GoBack);
     </script>
 </body>
 </html>

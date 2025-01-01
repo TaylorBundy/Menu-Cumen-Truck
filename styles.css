@@ -16,6 +16,10 @@ header {
     text-align: center;
     padding: 1rem 0;
     position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
 }
 
 .logo {
@@ -53,9 +57,15 @@ header p {
 
 .menu-container {
     display: flex;
-    justify-content: flex-end;
+    width: 100%;
+    justify-content: right;
     align-items: center;
-    position: relative;
+    position: absolute;
+    padding: 0 2rem;
+    height: 40px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 .menu-toggle {
@@ -65,6 +75,11 @@ header p {
     font-size: 30px;
     cursor: pointer;
     z-index: 10;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.05);
+    color: #444;
 }
 
 /* Estilo del menú desplegable */
@@ -98,17 +113,24 @@ header p {
 .menu a {
     color: white;
     text-decoration: none;
-    display: block;
-    padding: 10px;
+    display: flex;
+    /* padding: 10px; */
+    height: 40px;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu a:hover {
     background-color: #555;
+    border-radius: 5px;
+    transform: scale(1.01);
+    font-weight: bold;
 }
 
 /* Mostrar menú cuando esté activo */
 .menu.active {
     display: flex;
+    right: 2rem;
 }
 
 .menu.inactive {
@@ -123,13 +145,20 @@ main {
 }
 
 .menu-section {
-    background-image: url('Imagenes/logo.webp');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background-image: radial-gradient(#ffb931, #ff6100);    
+    /* background-image: url('Imagenes/logo.webp'); */
+    /* background-size: 100% 100%; */
+    /* background-repeat: no-repeat; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
-    padding: 2rem;
+    /* padding: 2rem; */
+    padding: 1rem 2rem 1rem 2rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    border-radius: 5px;    
 }
 
 .menu-item {
@@ -242,6 +271,11 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    border-radius: 5px;
 }
 
 footer a {
@@ -297,6 +331,7 @@ footer a:hover {
 
 @media only screen and (min-width: 360px) and (max-width: 501px) and (orientation: portrait) {
     header {
+        width: auto;
         height: 132px;
         border-radius: 8px;
         margin: 0 5px 0 5px;
@@ -315,25 +350,45 @@ footer a:hover {
 
     .menu-container {
         position: fixed;
-        margin-right: 10px;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        height: 32px;
+        /* margin-right: 10px; */
         top: 0;
-        right: 0;
+        /* right: 0; */
+        bottom: 0;
         width: 100%;
+        /* margin: 0; */
         z-index: 10;
+        padding: 0 20px;
+        margin: 0;
+    }
 
+    .menu-toggle {
+        position: relative;
+        /* right: 20px; */
+        display: flex;
+        align-items: center;
     }
 
     .menu.active {
+        /* display: flex; */
+        /* height: 32px; */
+        width: 70px;
         opacity: 0.8;
-        width: fit-content;
+        /* width: fit-content; */
+        right: 20px;
     }
 
     .menu a {
         font-size: 14px;
         padding: 5px;
+        height: 32px;
     }
 
     .menu-section {
+        width: auto;
         background-image: none;
         padding: 5px;
         gap: 5px;
@@ -423,6 +478,7 @@ footer a:hover {
         text-align: center;
         vertical-align: middle;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
     }
 
     .detail-view .FondoImg {
@@ -573,6 +629,7 @@ footer a:hover {
     }
 
     footer {
+        width: auto;
         border-radius: 8px;
         margin: 0 5px 0 5px;
         padding: 5px;
