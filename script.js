@@ -426,7 +426,8 @@ function CargaAbout () {
         const imgabout = document.querySelector('#about');
         //const urrl = 'https://drive.google.com/thumbnail?id=1YZXo3GZ2YbBhlp6sXreHzNA2yd54bq8z&sz=w4000';
         //cargamos la imagen si es WINDOWS en una resolucion de 2K
-        const urlAbout = 'https://drive.google.com/thumbnail?id=1jtZBdlz_Pzj1W_RU5xWxLn_-8CWtZBUB&sz=w2000';
+        //const urlAbout = 'https://drive.google.com/thumbnail?id=1jtZBdlz_Pzj1W_RU5xWxLn_-8CWtZBUB&sz=w2000';
+        const urlAbout = 'https://drive.google.com/thumbnail?id=1UfPrutLsxYQr52bRgDICUiTtRvd07ylU&sz=w1280';
         imgabout.style.backgroundSize = 'cover';
         imgabout.style.backgroundRepeat = 'no-repeat';
         if (plataforma.includes('Android')) {
@@ -434,7 +435,7 @@ function CargaAbout () {
             imgabout.alt = 'About-Baja';
         } else if (plataforma.includes('Win')) {
             imgabout.src = urlAbout;
-            imgabout.alt = 'About-2K';
+            imgabout.alt = 'About-1280';
         }
     }
 }

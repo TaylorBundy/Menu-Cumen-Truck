@@ -31,9 +31,10 @@
         </div>
     </header>
     <div class="container">
+        <div class="historia">
         <div class="hero">
             <!-- <img src="https://drive.google.com/thumbnail?id=1YZXo3GZ2YbBhlp6sXreHzNA2yd54bq8z&sz=w4000" alt="Cumen Truck"> -->
-            <img id="about" alt="Cumen Truck">
+            <img id="about" alt="Cumen Truck" class="zoom-image">
         </div>
         <div class="content">
             <h2>Nuestra Historia</h2>
@@ -43,6 +44,7 @@
             <p>
                 Nuestro compromiso con la calidad y el sabor nos ha convertido en una referencia en la escena gastronómica local. Nos esforzamos por brindar una experiencia única, tanto en sabor como en servicio.
             </p>
+        </div>
         </div>
         <div class="content" id="equipo">
             <h2>El Equipo</h2>
@@ -106,8 +108,7 @@
             }
         };
 
-        const isBottomOfPage2 = () => {
-            //return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight);
+        /* const isBottomOfPage2 = () => {
             return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight;
         };
 
@@ -127,10 +128,20 @@
                     menu.classList.add('active');
                 }
             }
-        };
+        }; */
         const plataforma2 = navigator.userAgent;
-        if (plataforma2.includes('Android')) {
+        const imageContainer = document.querySelector('.hero');
+        const image = document.querySelector('.zoom-image');
+        const imageUrl = 'https://drive.google.com/thumbnail?id=1UfPrutLsxYQr52bRgDICUiTtRvd07ylU&sz=w1280';
+        if (plataforma2.includes('Win')) {
             //window.addEventListener("scroll", menuVisible);
+            imageContainer.addEventListener('click', () => {
+                imageContainer.classList.toggle('active');
+            });
+        } else if (plataforma2.includes('Android')) {
+            image.addEventListener('click', () => {
+                window.open(imageUrl, '_blank'); // Abrir en una nueva pestaña
+            });
         }
         document.getElementById("myBtn2").addEventListener("click", GoBack);
         cargarYEjecutarFuncion();

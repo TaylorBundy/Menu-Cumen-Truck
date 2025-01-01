@@ -178,19 +178,42 @@ header p {
     border-radius: 5px;
 }
 
+.historia {
+    display: flex;
+}
+
+.historia .content {
+    flex: 3;
+    margin: 0 0 0 5px;
+}
+
 .hero {
     text-align: center;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    flex: 1;
+    z-index: 10;
 }
 
 .hero img {
     max-width: 100%;
     border-radius: 10px;
+    cursor: zoom-in;
 }
 
-.content {
-    margin-top: 20px;
+.zoom-image {
+    width: 300px;
+    height: auto;
+    transition: transform 0.3s ease; /* Animación de zoom */
+  }
+
+.hero.active .zoom-image {
+    transform: scale(2) translateX(30%); /* Amplía la imagen */
+    cursor: zoom-out;    /* Cambia el cursor al hacer clic */
 }
+
+/* .content {
+    margin-top: 20px;
+} */
 
 .content h2 {
     color: #444;
@@ -394,6 +417,10 @@ footer a:hover {
         /* display: grid; */
         width: 100%;
         padding: 0;
+    }
+
+    .historia {
+        display: block;
     }
 
     .top {
