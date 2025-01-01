@@ -89,8 +89,10 @@
             script.src = 'script.js';
             script.onload = () => {
                 try {
-                    if (typeof creaTop === 'function') creaTop();
-                    if (typeof scrollFunction === 'function') scrollFunction();
+                    if (plataforma2.includes('Android')) {
+                        if (typeof creaTop === 'function') creaTop();
+                        if (typeof scrollFunction === 'function') scrollFunction();
+                    }
                     if (typeof CargaAbout === 'function') CargaAbout();
                 } catch (error) {
                     console.error('Error al ejecutar funciones:', error);
@@ -142,6 +144,7 @@
             image.addEventListener('click', () => {
                 window.open(imageUrl, '_blank'); // Abrir en una nueva pestaña
             });
+            //cargarYEjecutarFuncion();
         }
         document.getElementById("myBtn2").addEventListener("click", GoBack);
         cargarYEjecutarFuncion();

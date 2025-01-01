@@ -5,17 +5,15 @@ const price = document.querySelectorAll('.price');
 const page = document.querySelector('#page a');
 const metaContent = document.querySelector('meta[name="description"]');
 const ContMeta = 'Cumen Truck ofrece una deliciosa variedad de comidas rápidas, incluyendo hamburguesas, tacos y panchos, elaborados con ingredientes frescos y de calidad. Disfruta de opciones como la Hamburguesa de Cordero con cebolla caramelizada y alioli, o el Taco Veggie con verduras salteadas, todo a precios accesibles. ¡El buen sabor te espera en Cumen Truck!';
-
 //definimos constante plataforma
 const plataforma = navigator.userAgent;
-
+//definimos la funcion onload
 window.onload = function() {
     //cargarImg();
     //if (plataforma.includes('Android')) {
         //creaTop();
     //}
     metaContent.content = ContMeta;
-
     //console.log(location.href);
     //if (page.textContent == 'Comidas') {
         //page.textContent = 'Bebidas';
@@ -28,9 +26,7 @@ window.onload = function() {
         //page.href = 'index.html';
     //}
 };
-
 //document.body.onload = cargarImg;
-
 //Definimos la funcion que agrega los titulos a los componentes
 function Titulos() {
     if (instagram.onmouseover) {
@@ -40,7 +36,6 @@ function Titulos() {
         facebook.title = 'Visitar página de Facebook de "Cumen Truck"';
     }
 }
-
 //definimos la funcion para crear un nuevo div por cada item del menu
 //para luego crear un nuevo elemento img para colocar el logo con efecto
 function cargarImg(){
@@ -64,7 +59,7 @@ function cargarImg(){
         }
     }
 }
-
+//definimos la funcion que crea el boton de top para dispositivos moviles
 function creaTop(){
     //if (location.href.includes('Menu-Cumen-Truck') || location.href.includes('index') || window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas') || window.location.pathname.includes('Menu-Cumen-Truck'))
     //if (location.href.includes('Menu-Cumen-Truck') && location.href.includes('index') || window.location.pathname.includes('Menu-Cumen-Truck') && window.location.pathname.includes('index') || location.href.includes('bebidas') || window.location.pathname.includes('bebidas'))
@@ -91,13 +86,12 @@ function creaTop(){
         nodo1.appendChild(nodoButton);
     }
 }
-
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
 const hahaha = document.getElementById('jaja');
 const todosss = document.querySelectorAll('div:not(.menu-container), header p, .menu-section');
 let tiene = '';
-
+//removemos la clase active
 todosss.forEach(element => {
 //le añadimos el evento "onClick"  a cada elemento
     if (plataforma.includes('Win')) {
@@ -112,7 +106,7 @@ todosss.forEach(element => {
         });
     }
 });
-
+//si es windows definimos la funcion click
 if (plataforma.includes('Win')) {
     //document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
@@ -126,8 +120,8 @@ if (plataforma.includes('Win')) {
     //});
 } else if (plataforma.includes('Android')) {
     setTimeout(() => {
-        menu.classList.add('active');        
-        if (['index', 'Menu-Cumen-Truck', 'bebidas', 'about'].some(path => window.location.pathname.includes(path))) {            
+        menu.classList.add('active');
+        if (['index', 'Menu-Cumen-Truck', 'bebidas', 'about'].some(path => window.location.pathname.includes(path))) {
             window.onscroll = function () {
                 scrollFunction();
                 menuVisible2();
@@ -135,7 +129,6 @@ if (plataforma.includes('Win')) {
         }
     }, 500);
 }
-
 /* async function hiddde(hg) {
     if (plataforma.includes('Win')) {
         tiene = menu.classList.value;
@@ -168,7 +161,6 @@ if (plataforma.includes('Win')) {
         //
     }
 } */
-
 let a = '';
 let b = '';
 let scrolll = '';
@@ -177,17 +169,13 @@ const target = 20;
 let final = '';
 //const TargetHeight = document.documentElement.offsetHeight - screen.height;
 const TargetHeight = document.documentElement.offsetHeight - window.innerHeight;
-
 // When the user scrolls down 20px from the top of the document, show the button
-//window.onscroll = function() {scrollFunction()};
-
 function scrollFunction() {
     const mybutton = document.getElementById("myBtn");
     const topp = document.querySelector('.top');
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     scrolll = window.scrollY;
     mybutton.style.display = "block";
-
     if (isBottomOfPage()) {
         topp.style.bottom = 85 + 'px';
     } else if (scrolll <= Math.max(document.documentElement.scrollHeight) - window.innerHeight) {
@@ -202,12 +190,11 @@ function scrollFunction() {
     mybutton.style.display = "none";
   }
 }
-
+//funcion para determinar si llegamos al final de la pagina
 function isBottomOfPage() {
     //return window.scrollY + window.innerHeight >= Math.round(document.documentElement.scrollHeight);
     return window.scrollY + window.innerHeight >= document.documentElement.scrollHeight;
 }
-
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
     //const mybutton = document.getElementById("myBtn");
@@ -227,15 +214,11 @@ function topFunction() {
         }
     }
 }
-
-
-
 /* function getAndroidVersion() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const match = userAgent.match(/Android\s([0-9\.]+)/);
     return match ? match[1] : null; // Devuelve la versión o null si no es Android
 } */
-
 /* function ejecutarParaElementos(elementos) {
     elementos.forEach(elemento => {
       if (elemento.classList.contains('hidden')) {
@@ -246,14 +229,13 @@ function topFunction() {
       // Resto del código para elementos visibles
     });
   } */
-
 // Verifica si el dispositivo es móvil
 function esMovil() {
     return /Mobi|Android/i.test(navigator.userAgent);
 }
 let elemID = '';
 let classi = '';
-
+//al cargar el documento
 document.addEventListener('DOMContentLoaded', () => {
     cargarImg();
     //por cada elemento dentro de la constante "price", realizamos la busqueda del "id"
@@ -272,7 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             creaTop();
         }
-
         //creaTop();
         const mybutton = document.getElementById("myBtn");
         const menuItems = document.querySelectorAll('.menu-item');
@@ -280,25 +261,20 @@ document.addEventListener('DOMContentLoaded', () => {
         detailView.id = 'details';
         detailView.className = 'detail-view';
         document.querySelector('main').appendChild(detailView);
-
         menuItems.forEach((item, index) => {
             item.addEventListener('click', () => {
                 // Calcular la posición del artículo
                 const rect = item.getBoundingClientRect();
                 const positionX = rect.left + window.scrollX;
                 const positionY = rect.top + window.scrollY;
-
                 // Establecer el estilo de `detailView` para que coincida
                 detailView.style.left = `${positionX}px`;
                 detailView.style.top = `${positionY}px`;
                 detailView.style.width = `${rect.width}px`; // Mantener el ancho del artículo
                 detailView.style.height = `${rect.height}px`; // Mantener la altura del artículo
                 detailView.style.transform = 'scale(0)';
-
                 // Forzar un reflow para registrar el estado inicial
                 //detailView.offsetHeight;
-
-
                 for (let c = 0; c < menuItems.length; c++) {
                     var menuclass = menuItems[c];
                     if (menuclass.classList.value === 'menu-item hidden') {
@@ -307,7 +283,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         item.classList.add('hidden');
                     }
                 }
-
                 setTimeout(() => {
                     item.ontransitionend = (evento) => {
                         if (evento.propertyName === 'transform' && item.classList.contains('hidden')) { // Asegura que estamos escuchando transform
@@ -320,7 +295,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     };
                 }, 300);
-
                 // Mostrar información detallada
                 const detailContent = `
                     <img src="Imagenes/logo-transparente.webp" alt="" id="FondoImg" class="FondoImg">
@@ -343,17 +317,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     const AreaDescription = document.querySelector('#descr');
                     AreaDescription.textContent = descripcion;
                 })();
-
                 // Manejar el botón "Volver"
                 const backButton = detailView.querySelector('.back-button');
                 backButton.addEventListener('click', () => {
-                    if (lalalala(detailView) > 0) {
+                    if (esTransform(detailView) > 0) {
                         detailView.style.transform = 'scale(0)';
                     } else {
                         detailView.style.transform = 'scale(1)';
                     }
                     detailView.classList.replace('active', 'final');
-
                     setTimeout(() => {
                         detailView.ontransitionend = (evento) => {
                             if (evento.propertyName === 'transform' && detailView.classList.contains('final')) { // Asegura que estamos escuchando transform
@@ -364,13 +336,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         };
                     },300);
                 });
-
             });
         });
     }
 });
-
-function lalalala(ele){
+//definimos la funcion que verifica si un componente tiene transformacion
+function esTransform(ele){
     const estilo = window.getComputedStyle(ele);
       const transform = estilo.transform;
       if (transform === 'none') {
@@ -402,7 +373,6 @@ async function cargarJson(url) {
       console.error("Error al cargar el archivo JSON:", error);
     }
   }
-
 // Función para buscar una descripción por su identificador
 async function buscarDescripcion2(identificador, titu, archivo) {
     const datos = await cargarJson("assets/" + archivo + '.json');
@@ -420,7 +390,7 @@ async function buscarDescripcion2(identificador, titu, archivo) {
         }
     }
 }
-
+//funcion que carga la foto del about
 function CargaAbout () {
     if (window.location.pathname.includes('about') || location.href.includes('about')) {
         const imgabout = document.querySelector('#about');
@@ -439,7 +409,7 @@ function CargaAbout () {
         }
     }
 }
-
+//funcion que oculta o expande el menu segun scroll
 function menuVisible2(){
     //const menu = document.querySelector(".menu");
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {

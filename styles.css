@@ -3,12 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
-
 header {
     height: 132px;
     background-image: radial-gradient(#ffb931, #ff6100);
@@ -21,7 +19,6 @@ header {
     margin-right: auto;
     border-radius: 5px;
 }
-
 .logo {
     position: absolute;
     width: 100%;
@@ -32,11 +29,9 @@ header {
     opacity: 0.8;
     animation: heartbeat2 1.5s ease-in-out 4;
 }
-
 .logo img {
     position: relative;
 }
-
 header h1 {
     font-size: 2.5rem;
     position: relative;
@@ -45,7 +40,6 @@ header h1 {
     -webkit-text-stroke: 1px #333;
     text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
 }
-
 header p {
     margin-top: 0.5rem;
     position: relative;
@@ -55,7 +49,6 @@ header p {
     -webkit-text-stroke: 0.5px #7BA842;
     text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
 }
-
 .menu-container {
     display: flex;
     width: 100%;
@@ -68,7 +61,6 @@ header p {
     bottom: 0;
     margin: auto;
 }
-
 .menu-toggle {
     background: none;
     border: none;
@@ -77,13 +69,10 @@ header p {
     cursor: pointer;
     z-index: 10;
 }
-
 .menu-toggle:hover {
     transform: scale(1.05);
     color: #444;
 }
-
-/* Estilo del menú desplegable */
 .menu {
     position: absolute;
     top: 100%;
@@ -96,64 +85,46 @@ header p {
     width: 200px;
     z-index: 10;
 }
-
 .menu ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
-
 .menu li {
     border-bottom: 1px solid #444;
 }
-
 .menu li:last-child {
     border-bottom: none;
 }
-
 .menu a {
     color: white;
     text-decoration: none;
     display: flex;
-    /* padding: 10px; */
     height: 40px;
     justify-content: center;
     align-items: center;
 }
-
 .menu a:hover {
     background-color: #555;
     border-radius: 5px;
     transform: scale(1.01);
     font-weight: bold;
 }
-
-/* Mostrar menú cuando esté activo */
 .menu.active {
     display: flex;
     right: 2rem;
 }
-
 .menu.inactive {
     display: none;
 }
-
 main {
-    /* background-image: url('Imagenes/logo-2.webp'); */
-    /* background-size: cover; */
     background-repeat: no-repeat;
-    /* background-position-y: -250px; */
 }
-
 .menu-section {
     background-image: radial-gradient(#ffb931, #ff6100);
-    /* background-image: url('Imagenes/logo.webp'); */
-    /* background-size: 100% 100%; */
-    /* background-repeat: no-repeat; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
-    /* padding: 2rem; */
     padding: 1rem 2rem 1rem 2rem;
     width: 90%;
     margin-left: auto;
@@ -161,7 +132,6 @@ main {
     margin-top: 5px;
     border-radius: 5px;
 }
-
 .menu-item {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -170,83 +140,59 @@ main {
     text-align: center;
     background-color: #fff;
     position: relative;
-
 }
-
 .menu-item img {
     width: 100%;
-    /* height: 200px; */
     height: auto;
-    /* object-fit: cover; */
-    /* background-size: cover; */
-
 }
-
 .FondoImg {
     display: none;
 }
-
 /* .Burguer {
     background-image: url('Imagenes/burguer-completa.webp');
 } */
-
 .Img1 {
     position: relative;
     display: none;
 }
-
 .Img2 {
     position: relative;
     display: none;
 }
-
 .menu-item h3 {
-    /* margin: 0.5rem 0; */
     text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 30px;
 }
-
 .menu-item p {
     padding: 0 1rem;
-    /* margin-bottom: 0.5rem; */
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 75px;
 }
-
 .menu-item .price {
     font-size: 1.2rem;
     font-weight: bold;
     color: #f8b400;
-    /* margin-bottom: 1rem; */
     text-shadow: 2px 2px 2px rgba(167, 121, 0, 1);
     width: 100%;
     height: 30px;
     display: flex;
     justify-content: center;
 }
-
 .nodo-img-item {
     position: absolute;
     width: 100%;
-    /* height: 100px; */
     display: flex;
     justify-content: center;
     z-index: 5;
-    /* opacity: 0.3; */
     top: 8px;
-    /* height: 200px; */
 }
-
 .nodo-img-item img {
     position: relative;
     width: 20%;
-    /* animation: heartbeat 1.5s infinite; */
     animation: heartbeat 1.5s ease-in-out 10;
 }
-
-
 /* #myBtn {
     display: none; Hidden by default
     position: fixed; Fixed/sticky position
@@ -262,11 +208,9 @@ main {
     border-radius: 10px; Rounded corners
     font-size: 18px; Increase font size
   }
-
   #myBtn:hover {
     background-color: #555; Add a dark-grey background on hover
   } */
-
 footer {
     background-color: #333;
     color: white;
@@ -278,24 +222,18 @@ footer {
     margin-top: 5px;
     border-radius: 5px;
 }
-
 footer a {
     color: #f8b400;
     margin: 0 0.5rem;
     text-decoration: none;
 }
-
 footer a:hover {
     text-decoration: underline;
 }
-
 .ImgSocial {
-    /* width: 20px; */
     width: 30px;
-    /* height: 20px; */
     height: 30px;
 }
-
 @keyframes heartbeat {
     0% {
         transform: scale(1);
@@ -310,7 +248,6 @@ footer a:hover {
         transform: scale(1);
     }
 }
-
 @keyframes heartbeat2 {
     0% {
         opacity: 0.8;
@@ -329,7 +266,6 @@ footer a:hover {
         transform: scale(1);
     }
 }
-
 @media only screen and (min-width: 360px) and (max-width: 501px) and (orientation: portrait) {
     header {
         width: auto;
@@ -338,63 +274,49 @@ footer a:hover {
         margin: 0 5px 0 5px;
         padding: 1rem 0;
     }
-
     header p {
         top: 57px;
     }
-
     .logo {
         height: 100px;
         opacity: 0.8;
         animation: heartbeat2 1.5s ease-in-out 2;
     }
-
     .menu-container {
         position: fixed;
         display: flex;
         justify-content: right;
         align-items: center;
         height: 32px;
-        /* margin-right: 10px; */
         top: 0;
-        /* right: 0; */
         bottom: 0;
         width: 100%;
-        /* margin: 0; */
         z-index: 10;
         padding: 0 20px;
         margin: 0;
     }
-
     .menu-toggle {
         position: relative;
-        /* right: 20px; */
         display: flex;
         align-items: center;
     }
-
     .menu.active {
-        /* display: flex; */
-        /* height: 32px; */
         width: 70px;
         opacity: 0.8;
-        /* width: fit-content; */
         right: 20px;
     }
-
     .menu a {
         font-size: 14px;
         padding: 5px;
         height: 32px;
     }
-
     .menu-section {
         width: auto;
         background-image: none;
         padding: 5px;
         gap: 5px;
+        margin: 0;
     }
-
     .menu-item {
         background-image: radial-gradient(#ffb931, #ff6100);
         width: 100%;
@@ -402,11 +324,9 @@ footer a:hover {
         flex-direction: column;
         transition: transform 0.5s ease-in-out;
     }
-
     .menu-item.hidden {
         transform: scale(0);
     }
-
     .detail-view {
         display: inline-flex;
         flex-direction: column;
@@ -417,11 +337,10 @@ footer a:hover {
         background-repeat: no-repeat;
         border-radius: 5px;
         text-align: center;
-        transform-origin: center center; /* Asegura que el encogimiento ocurra desde el centro */
+        transform-origin: center center;
         transition: transform 0.5s ease-in-out;
         z-index: 5;
     }
-
     .detail-view.active {
         background-image: url('Imagenes/fondo-img.webp');
         background-size: cover;
@@ -431,13 +350,11 @@ footer a:hover {
         visibility: visible;
         transition: transform 0.5s ease-in-out;
     }
-
     .detail-view.exit,
     .detail-view.final {
         visibility: visible;
         transform: scale(0);
     }
-
     .detail-view .descContent {
         position: relative;
         display: inline-flex;
@@ -446,7 +363,6 @@ footer a:hover {
         height: 85%;
         margin: 10px auto auto auto;
     }
-
     .descContent h2 {
         position: relative;
         width: 100%;
@@ -458,14 +374,12 @@ footer a:hover {
         line-height: 30px;
         text-shadow: 1px 1px 1px rgba(173, 241, 84, 0.6);
     }
-
     .descContent h1 {
         color: #333;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 20px;
         text-shadow: 1px 2px 1px rgba(75, 75, 75, 0.6);
     }
-
     .descripcion {
         position: relative;
         width: 80%;
@@ -473,7 +387,6 @@ footer a:hover {
         display: table;
         margin: auto;
     }
-
     .descripcion p {
         display: table-cell;
         text-align: center;
@@ -481,7 +394,6 @@ footer a:hover {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-weight: bold;
     }
-
     .detail-view .FondoImg {
         display: flex;
         position: relative;
@@ -492,18 +404,15 @@ footer a:hover {
         opacity: 0.8;
         animation: heartbeat 1.5s ease-in-out 10;
     }
-
     .menu-item h3 {
         color: #c1ff72;
         -webkit-text-stroke: 1px #7BA842;
         text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
         display: none;
     }
-
     body.bebidas h3 {
         display: block;
     }
-
     .back-button .btnClose {
         background-color: #333333eb;
         border: 1px solid #333;
@@ -517,7 +426,6 @@ footer a:hover {
         margin: 0;
         padding: 0;
     }
-
     .back-button {
         position: absolute;
         display: flex;
@@ -531,48 +439,37 @@ footer a:hover {
         top: 75%;
         margin: auto;
     }
-
     .menu-item p {
         font-weight: bold;
         text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
         height: auto;
     }
-
     .menu-item .price {
         color: white;
         text-shadow: none;
     }
-
     .menu-item .price,
     .menu-item h3,
     .menu-item p {
         border: 1px solid #f8b400;
         margin: 0;
     }
-
     .menu-item img {
         position: relative;
         display: block;
         height: auto;
         opacity: 0.8;
     }
-
     .menu-item .Burguer, .menu-item .Cordero, .menu-item .Choritaco, .menu-item .Trucha,
     .menu-item .Veggie, .menu-item .Pancho, .menu-item .Fritas, .menu-item .Pollo, .menu-item .ChoriBurguer{
         display: none;
     }
-
     .menu-item .FondoImg {
-        /* position: relative; */
-        /* opacity: 1; */
         opacity: 0.3;
         width: 100%;
         height: 315px;
-        /* margin-left: auto; */
-        /* margin-right: auto; */
         margin: auto;
     }
-
     .menu-item .Img1,
     .menu-item .Img2 {
         position: absolute;
@@ -583,7 +480,6 @@ footer a:hover {
         margin: auto;
         opacity: 1;
     }
-
     /* .menu-item .Img2 {
         position: absolute;
         opacity: 1;
@@ -593,12 +489,9 @@ footer a:hover {
         right: 0;
         margin: auto;
     } */
-
     .nodo-img-item img {
         animation: heartbeat 1.5s ease-in-out 4;
     }
-
-
     .top {
         position: fixed;
         display: flex;
@@ -607,7 +500,6 @@ footer a:hover {
         bottom: 20px;
         z-index: 10;
     }
-
     #myBtn {
         display: none;
         position: relative;
@@ -615,20 +507,14 @@ footer a:hover {
         padding: 20px;
         border: 1px solid #333;
         border-radius: 50px;
-        /* outline: none; /* Remove outline */
         background: #333333eb url('Imagenes/top.webp') no-repeat center/cover;
-        /* background-color: #333333eb; */
-        /* background-image: url('Imagenes/top.webp'); */
-        /* background-size: cover; */
         color: white;
         font-size: 18px;
         z-index: 10;
     }
-
     #myBtn:hover {
         background-color: #555;
     }
-
     footer {
         width: auto;
         border-radius: 8px;
