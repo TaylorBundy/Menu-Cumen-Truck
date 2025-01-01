@@ -125,6 +125,7 @@ if (plataforma.includes('Win')) {
             window.onscroll = function () {
                 scrollFunction();
                 menuVisible2();
+                sisi();
             };
         }
     }, 500);
@@ -261,12 +262,14 @@ document.addEventListener('DOMContentLoaded', () => {
         detailView.id = 'details';
         detailView.className = 'detail-view';
         document.querySelector('main').appendChild(detailView);
-        menuItems.forEach((item, index) => {
+        
+        menuItems.forEach((item, index) => {            
             item.addEventListener('click', () => {
                 // Calcular la posición del artículo
                 const rect = item.getBoundingClientRect();
                 const positionX = rect.left + window.scrollX;
-                const positionY = rect.top + window.scrollY;
+                const positionY = rect.top + window.scrollY;                
+
                 // Establecer el estilo de `detailView` para que coincida
                 detailView.style.left = `${positionX}px`;
                 detailView.style.top = `${positionY}px`;
@@ -274,15 +277,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 detailView.style.height = `${rect.height}px`; // Mantener la altura del artículo
                 detailView.style.transform = 'scale(0)';
                 // Forzar un reflow para registrar el estado inicial
-                //detailView.offsetHeight;
-                for (let c = 0; c < menuItems.length; c++) {
+                detailView.offsetHeight;
+                /* for (let c = 0; c < menuItems.length; c++) {
                     var menuclass = menuItems[c];
                     if (menuclass.classList.value === 'menu-item hidden') {
                         menuclass.classList.remove('hidden');
                     } else if (menuclass.className != 'menu-item hidden') {
                         item.classList.add('hidden');
                     }
-                }
+                } */
+                //item.classList.add('hidden');
+
+                const itemid = document.getElementById(item.id);
+                //itemid.classList.add('hidden');
+                let menuItemsArray = Array.from(menuItems);
+                menuItemsArray.forEach((menuclass) => {
+                    if (menuclass.classList.contains('hidden')) {
+                        detailView.classList.remove('active');
+                        menuclass.classList.remove('hidden'); // Mostrar el elemento
+                    } //else {
+                        //itemid.classList.add('hidden'); // Ocultar el elemento
+                    //}
+                });
+                itemid.classList.add('hidden');
+
+                
+
+
                 setTimeout(() => {
                     item.ontransitionend = (evento) => {
                         if (evento.propertyName === 'transform' && item.classList.contains('hidden')) { // Asegura que estamos escuchando transform
@@ -295,6 +316,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     };
                 }, 300);
+                /* if (detailView.classList.contains('active')) {
+                    detailView.classList.remove('active');
+                    for (let c = 0; c < menuItems.length; c++) {
+                        //var menuclass = menuItems[c];
+                        if (menuclass.classList.contains('hidden')) {
+                            menuclass.classList.remove('hidden');
+                        } else {
+                            menuclass.classList.add('hidden');
+                        }
+                    }
+                } */
                 // Mostrar información detallada
                 const detailContent = `
                     <img src="Imagenes/logo-transparente.webp" alt="" id="FondoImg" class="FondoImg">
@@ -426,4 +458,34 @@ function menuVisible2(){
             menu.classList.add('active');
         }
     }
+}
+const menuItems = document.querySelectorAll('.menu-item');
+
+function sisi () {
+    const deta = document.querySelector('.detail-view');
+    const iid = deta.id;
+    //console.log(deta.classList);
+    //console.log(iid);
+
+    menuItems.forEach((item, index) => {            
+        if (item.classList.contains('hidden')) {
+            const rect = item.getBoundingClientRect();
+            //const positionX = rect.left + window.scrollX;
+            //const positionY = rect.top + window.scrollY;    
+            //console.log(deta.getBoundingClientRect().top);            
+            //window.onscroll = function () {
+                if (deta.getBoundingClientRect().top <= -370) {
+                //if (document.body.scrollTop > rect.height || document.documentElement.scrollTop > rect.height) {
+                            //
+                    //console.log('si');
+                    deta.classList.remove('active');
+                    item.classList.remove('hidden');
+                } else if (isBottomOfPage()) {
+                    deta.classList.remove('active');
+                    item.classList.remove('hidden');
+                    //console.log('no');
+                }
+            //}
+        }
+    });
 }
