@@ -125,7 +125,7 @@ if (plataforma.includes('Win')) {
             window.onscroll = function () {
                 scrollFunction();
                 menuVisible2();
-            }
+            };
         }
     }, 500);
 }
@@ -426,4 +426,4 @@ function menuVisible2(){
             menu.classList.add('active');
         }
     }
-};
+}
