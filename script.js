@@ -125,7 +125,7 @@ if (plataforma.includes('Win')) {
             window.onscroll = function () {
                 scrollFunction();
                 menuVisible2();
-                sisi();
+                sisi();                
             };
         }
     }, 500);
@@ -461,11 +461,11 @@ function menuVisible2(){
 }
 const menuItems = document.querySelectorAll('.menu-item');
 
-function sisi () {
+function sisi (dire) {
     const deta = document.querySelector('.detail-view');
     const iid = deta.id;
     //console.log(deta.classList);
-    //console.log(iid);
+    //console.log(iid);    
 
     menuItems.forEach((item, index) => {            
         if (item.classList.contains('hidden')) {
@@ -480,12 +480,16 @@ function sisi () {
                     //console.log('si');
                     deta.classList.remove('active');
                     item.classList.remove('hidden');
-                } else if (isBottomOfPage()) {
+                } else if (isBottomOfPage() || window.scrollY == 0) {
                     deta.classList.remove('active');
                     item.classList.remove('hidden');
                     //console.log('no');
-                }
+                }/*  else if (dire == 'arriba'){
+                    deta.classList.remove('active');
+                    item.classList.remove('hidden');
+                } */
             //}
         }
     });
 }
+
