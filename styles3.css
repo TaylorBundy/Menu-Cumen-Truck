@@ -1,0 +1,633 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+header {
+    height: 132px;
+    background-image: radial-gradient(#ffb931, #ff6100);
+    color: #c1ff72;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+.logo {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+    opacity: 0.8;
+    animation: heartbeat2 1.5s ease-in-out 4;
+}
+.logo img {
+    position: relative;
+}
+header h1 {
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 2;
+    top: -20px;
+    -webkit-text-stroke: 1px #333;
+    text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+header p {
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 7;
+    font-weight: bold;
+    top: 57px;
+    -webkit-text-stroke: 0.5px #7BA842;
+    text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+.menu-container {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    align-items: center;
+    position: absolute;
+    padding: 0 2rem;
+    height: 40px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
+.menu-toggle:hover {
+    transform: scale(1.05);
+    color: #444;
+}
+.menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    width: 200px;
+    z-index: 10;
+}
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    border-bottom: 1px solid #444;
+}
+.menu li:last-child {
+    border-bottom: none;
+}
+.menu a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+.menu a:hover {
+    background-color: #555;
+    border-radius: 5px;
+    transform: scale(1.01);
+    font-weight: bold;
+}
+.menu.active {
+    display: flex;
+    right: 2rem;
+}
+.menu.inactive {
+    display: none;
+}
+main {
+    background-repeat: no-repeat;
+}
+.menu-section {
+    background-image: radial-gradient(#ffb931, #ff6100);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1rem 2rem 1rem 2rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+.menu-item {
+    /* background-image: radial-gradient(#ffb931, #ff6100); */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.imagenes {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* top: 25px; */
+    /* margin-bottom: 10px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid blue; */
+    z-index: 3;
+    padding: 5px;
+}
+/* .menu-item img { */
+#FondoImg {
+    width: 100%;
+    height: auto;
+    top: 0;
+    position: absolute;
+    z-index: 1;
+}
+/* .FondoImg { */
+    /* display: none; */
+/* } */
+/* .Burguer {
+    background-image: url('Imagenes/burguer-completa.webp');
+} */
+#Img1 {
+    position: relative;
+    width: 100%;
+    /* position: absolute; */
+    /* display: none; */
+    /* top: 5px; */
+    z-index: 2;
+    /* border: 1px solid blue; */
+}
+.Img2 {
+    position: relative;
+    display: none;
+}
+.menu-item h3 {
+    position: relative;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 30px;
+    top: 30px;
+    z-index: 2;
+}
+.menu-item p {
+    padding: 0 1rem;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 75px;
+}
+.menu-item .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    /* color: #f8b400; */
+    color: #333;
+    /* text-shadow: 2px 2px 2px rgba(167, 121, 0, 1); */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+.nodo-img-item {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+    top: 8px;
+}
+.nodo-img-item img {
+    position: relative;
+    width: 20%;
+    animation: heartbeat 1.5s ease-in-out 10;
+}
+/* #myBtn {
+    display: none; Hidden by default
+    position: fixed; Fixed/sticky position
+    bottom: 20px; Place the button at the bottom of the page
+    right: 30px; Place the button 30px from the right
+    z-index: 99; Make sure it does not overlap
+    border: none; Remove borders
+    outline: none; Remove outline
+    background-color: red; Set a background color
+    color: white; Text color
+    cursor: pointer; Add a mouse pointer on hover
+    padding: 15px; Some padding
+    border-radius: 10px; Rounded corners
+    font-size: 18px; Increase font size
+  }
+  #myBtn:hover {
+    background-color: #555; Add a dark-grey background on hover
+  } */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+footer a {
+    color: #f8b400;
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+.back {
+    width: 10%;
+    height: 60px;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+#myBtn2 {
+    display: block;
+    position: relative;
+    border-radius: 50% 25% 25% 50%;
+    background-color: transparent;
+    background-image: url('Imagenes/izquierda.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border: 2px solid #ff6100;
+    cursor: pointer;
+}
+#myBtn2:hover {
+    transform: scale(1.05);
+}
+.ImgSocial {
+    width: 30px;
+    height: 30px;
+}
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.2);
+    }
+    60% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes heartbeat2 {
+    0% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    30% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+    60% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+}
+@media only screen and (min-width: 360px) and (max-width: 501px) and (orientation: portrait) {
+    header {
+        width: auto;
+        height: 132px;
+        border-radius: 8px;
+        margin: 0 5px 0 5px;
+        padding: 1rem 0;
+    }
+    header p {
+        top: 57px;
+    }
+    .logo {
+        height: 100px;
+        opacity: 0.8;
+        animation: heartbeat2 1.5s ease-in-out 2;
+    }
+    .menu-container {
+        position: fixed;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        height: 32px;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+        padding: 0 20px;
+        margin: 0;
+    }
+    .menu-toggle {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    .menu.active {
+        width: 70px;
+        opacity: 0.8;
+        right: 20px;
+    }
+    .menu a {
+        font-size: 14px;
+        padding: 5px;
+        height: 32px;
+    }
+    .menu-section {
+        grid-template-columns: repeat(2, 1fr);
+        width: auto;
+        margin: 5px 5px 0 5px;
+        padding: 5px;
+    }
+    /* .menu-section {
+        width: auto;
+        background-image: none;
+        padding: 5px;
+        gap: 5px;
+        margin: 0;
+    } */
+    .menu-item {
+        /* background-image: radial-gradient(#ffb931, #ff6100); */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.5s ease-in-out;
+    }
+    .menu-item.hidden {
+        transform: scale(0);
+    }
+    .detail-view {
+        display: inline-flex;
+        flex-direction: column;
+        visibility: hidden;
+        position: absolute;
+        background-image: url('Imagenes/fondo-img.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 5px;
+        text-align: center;
+        transform-origin: center center;
+        transition: transform 0.5s ease-in-out;
+        z-index: 5;
+    }
+    .detail-view.active {
+        background-image: url('Imagenes/fondo-img.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: inline-flex;
+        flex-direction: column;
+        visibility: visible;
+        transition: transform 0.5s ease-in-out;
+    }
+    .detail-view.exit,
+    .detail-view.final {
+        visibility: visible;
+        transform: scale(0);
+    }
+    .detail-view .descContent {
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        width: 100%;
+        height: 85%;
+        margin: 10px auto auto auto;
+    }
+    .descContent h2 {
+        position: relative;
+        width: 100%;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        line-height: 30px;
+        text-shadow: 1px 1px 1px rgba(173, 241, 84, 0.6);
+    }
+    .descContent h1 {
+        color: #333;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20px;
+        text-shadow: 1px 2px 1px rgba(75, 75, 75, 0.6);
+    }
+    .descripcion {
+        position: relative;
+        width: 80%;
+        height: 80%;
+        display: table;
+        margin: auto;
+    }
+    .descripcion p {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+    }
+    .detail-view .FondoImg {
+        display: flex;
+        position: relative;
+        width: 20%;
+        margin-right: auto;
+        margin-left: auto;
+        top: 8px;
+        opacity: 0.8;
+        animation: heartbeat 1.5s ease-in-out 10;
+    }
+    .menu-item h3 {        
+        color: #fff;
+        font-size: 15px;        
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        border: 1px solid #f8b400;
+        margin: 0;        
+    }
+    /* body.bebidas h3 {
+        display: block;        
+        color: #fff;
+    } */
+    .back-button .btnClose {
+        background-color: #333333eb;
+        border: 1px solid #333;
+        border-radius: 50%;
+        background-image: url('Imagenes/close.webp');
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0;
+    }
+    .back-button {
+        position: absolute;
+        display: flex;
+        background: none;
+        border: none;
+        outline: none;
+        opacity: 0.8;
+        width: 42px;
+        height: 42px;
+        right: 2%;
+        top: 75%;
+        margin: auto;
+    }
+    /* .menu-item p {
+        font-weight: bold;
+        text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+        height: auto;
+    } */
+    .menu-item .price {
+        z-index: 2;
+        color: #333;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+    /* .menu-item .price {
+        color: white;
+        text-shadow: none;
+    } */    
+    
+    /* .menu-item img {
+        position: relative;
+        display: block;
+        height: auto;
+        opacity: 0.8;
+    } */
+    .menu-item .Burguer, .menu-item .Cordero, .menu-item .Choritaco, .menu-item .Trucha,
+    .menu-item .Veggie, .menu-item .Pancho, .menu-item .Fritas, .menu-item .Pollo, .menu-item .ChoriBurguer{
+        display: none;
+    }
+    .imagenes {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top: 15px;
+        /* margin-bottom: 10px; */
+    }
+    /* .menu-item .FondoImg { */
+    #FondoImg {
+        /* opacity: 0.3; */
+        width: 100%;
+        /* height: auto; */
+        height: 100%;
+        margin: auto;
+        /* position: relative; */
+        position: absolute;
+    }
+    #Img1 {
+        width: 100%;
+        /* height: 60%; */
+        /* position: absolute; */
+        position: relative;
+        /* top: 5px; */
+        /* top: 0; */
+        /* bottom: 0; */
+        z-index: 2;
+        margin: auto;
+        opacity: 1;
+    }
+    /* .menu-item .Img1, */
+    .menu-item .Img2 {
+        position: absolute;
+        width: 348px;
+        height: 348px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        opacity: 1;
+    }
+    /* .menu-item .Img2 {
+        position: absolute;
+        opacity: 1;
+        width: 348px;
+        height: 348px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    } */
+    .nodo-img-item img {
+        animation: heartbeat 1.5s ease-in-out 4;
+    }
+    .top {
+        position: fixed;
+        display: flex;
+        justify-content: right;
+        width: 100%;
+        bottom: 20px;
+        z-index: 10;
+    }
+    .back {
+        width: 10%;
+        height: 60px;
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+    }
+    #myBtn {
+        display: none;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        /* right: 20px; */
+        right: 10px;
+        /* padding: 20px; */
+        padding: 5px;
+        border: 1px solid #333;
+        border-radius: 50px;
+        background: #333333eb url('Imagenes/top.webp') no-repeat center/cover;
+        color: white;
+        font-size: 18px;
+        z-index: 10;
+    }
+    #myBtn:hover {
+        background-color: #555;
+    }
+    #myBtn2 {
+        display: block;
+        position: relative;
+        border-radius: 50% 25% 25% 50%;
+        background-color: transparent;
+        background-image: url('Imagenes/izquierda.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 20px;
+        border: 2px solid #ff6100;
+    }
+    footer {
+        width: auto;
+        border-radius: 8px;
+        margin: 5px 5px 0 5px;
+        padding: 5px;
+    }
+}
