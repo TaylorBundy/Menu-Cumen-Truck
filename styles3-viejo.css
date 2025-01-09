@@ -133,6 +133,7 @@ main {
     border-radius: 5px;
 }
 .menu-item {
+    /* background-image: radial-gradient(#ffb931, #ff6100); */
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
@@ -140,29 +141,56 @@ main {
     text-align: center;
     background-color: #fff;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
-.menu-item img {
+.imagenes {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* top: 25px; */
+    /* margin-bottom: 10px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid blue; */
+    z-index: 3;
+    padding: 5px;
+}
+/* .menu-item img { */
+#FondoImg {
     width: 100%;
     height: auto;
+    top: 0;
+    position: absolute;
+    z-index: 1;
 }
-.FondoImg {
-    display: none;
-}
+/* .FondoImg { */
+    /* display: none; */
+/* } */
 /* .Burguer {
     background-image: url('Imagenes/burguer-completa.webp');
 } */
-.Img1 {
+#Img1 {
     position: relative;
-    display: none;
+    width: 100%;
+    /* position: absolute; */
+    /* display: none; */
+    /* top: 5px; */
+    z-index: 2;
+    /* border: 1px solid blue; */
 }
 .Img2 {
     position: relative;
     display: none;
 }
 .menu-item h3 {
-    text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+    position: relative;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 30px;
+    top: 30px;
+    z-index: 2;
 }
 .menu-item p {
     padding: 0 1rem;
@@ -173,8 +201,10 @@ main {
 .menu-item .price {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #f8b400;
-    text-shadow: 2px 2px 2px rgba(167, 121, 0, 1);
+    /* color: #f8b400; */
+    color: #333;
+    /* text-shadow: 2px 2px 2px rgba(167, 121, 0, 1); */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 30px;
     display: flex;
@@ -230,11 +260,35 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+.back {
+    width: 10%;
+    height: 60px;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+#myBtn2 {
+    display: block;
+    position: relative;
+    border-radius: 50% 25% 25% 50%;
+    background-color: transparent;
+    background-image: url('Imagenes/izquierda.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border: 2px solid #ff6100;
+    cursor: pointer;
+}
+#myBtn2:hover {
+    transform: scale(1.05);
+}
 .ImgSocial {
     width: 30px;
     height: 30px;
 }
-/* @keyframes heartbeat {
+@keyframes heartbeat {
     0% {
         transform: scale(1);
     }
@@ -265,7 +319,7 @@ footer a:hover {
         opacity: 0.8;
         transform: scale(1);
     }
-} */
+}
 @media only screen and (min-width: 360px) and (max-width: 501px) and (orientation: portrait) {
     header {
         width: auto;
@@ -311,14 +365,20 @@ footer a:hover {
         height: 32px;
     }
     .menu-section {
+        grid-template-columns: repeat(2, 1fr);
+        width: auto;
+        margin: 5px 5px 0 5px;
+        padding: 5px;
+    }
+    /* .menu-section {
         width: auto;
         background-image: none;
         padding: 5px;
         gap: 5px;
         margin: 0;
-    }
+    } */
     .menu-item {
-        background-image: radial-gradient(#ffb931, #ff6100);
+        /* background-image: radial-gradient(#ffb931, #ff6100); */
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -404,15 +464,17 @@ footer a:hover {
         opacity: 0.8;
         animation: heartbeat 1.5s ease-in-out 10;
     }
-    .menu-item h3 {
-        color: #c1ff72;
-        -webkit-text-stroke: 1px #7BA842;
-        text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
-        display: none;
+    .menu-item h3 {        
+        color: #fff;
+        font-size: 15px;        
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        border: 1px solid #f8b400;
+        margin: 0;        
     }
-    body.bebidas h3 {
-        display: block;
-    }
+    /* body.bebidas h3 {
+        display: block;        
+        color: #fff;
+    } */
     .back-button .btnClose {
         background-color: #333333eb;
         border: 1px solid #333;
@@ -439,38 +501,61 @@ footer a:hover {
         top: 75%;
         margin: auto;
     }
-    .menu-item p {
+    /* .menu-item p {
         font-weight: bold;
         text-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
         height: auto;
-    }
+    } */
     .menu-item .price {
+        z-index: 2;
+        color: #333;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+    /* .menu-item .price {
         color: white;
         text-shadow: none;
-    }
-    .menu-item .price,
-    .menu-item h3,
-    .menu-item p {
-        border: 1px solid #f8b400;
-        margin: 0;
-    }
-    .menu-item img {
+    } */    
+    
+    /* .menu-item img {
         position: relative;
         display: block;
         height: auto;
         opacity: 0.8;
-    }
+    } */
     .menu-item .Burguer, .menu-item .Cordero, .menu-item .Choritaco, .menu-item .Trucha,
     .menu-item .Veggie, .menu-item .Pancho, .menu-item .Fritas, .menu-item .Pollo, .menu-item .ChoriBurguer{
         display: none;
     }
-    .menu-item .FondoImg {
-        opacity: 0.3;
+    .imagenes {
+        position: relative;
         width: 100%;
-        height: 315px;
-        margin: auto;
+        height: 100%;
+        top: 15px;
+        /* margin-bottom: 10px; */
     }
-    .menu-item .Img1,
+    /* .menu-item .FondoImg { */
+    #FondoImg {
+        /* opacity: 0.3; */
+        width: 100%;
+        /* height: auto; */
+        height: 100%;
+        margin: auto;
+        /* position: relative; */
+        position: absolute;
+    }
+    #Img1 {
+        width: 100%;
+        /* height: 60%; */
+        /* position: absolute; */
+        position: relative;
+        /* top: 5px; */
+        /* top: 0; */
+        /* bottom: 0; */
+        z-index: 2;
+        margin: auto;
+        opacity: 1;
+    }
+    /* .menu-item .Img1, */
     .menu-item .Img2 {
         position: absolute;
         width: 348px;
@@ -500,11 +585,24 @@ footer a:hover {
         bottom: 20px;
         z-index: 10;
     }
+    .back {
+        width: 10%;
+        height: 60px;
+        display: flex;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+    }
     #myBtn {
         display: none;
+        width: 30px;
+        height: 30px;
         position: relative;
-        right: 20px;
-        padding: 20px;
+        /* right: 20px; */
+        right: 10px;
+        /* padding: 20px; */
+        padding: 5px;
         border: 1px solid #333;
         border-radius: 50px;
         background: #333333eb url('Imagenes/top.webp') no-repeat center/cover;
@@ -515,10 +613,21 @@ footer a:hover {
     #myBtn:hover {
         background-color: #555;
     }
+    #myBtn2 {
+        display: block;
+        position: relative;
+        border-radius: 50% 25% 25% 50%;
+        background-color: transparent;
+        background-image: url('Imagenes/izquierda.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 20px;
+        border: 2px solid #ff6100;
+    }
     footer {
         width: auto;
         border-radius: 8px;
-        margin: 0 5px 0 5px;
+        margin: 5px 5px 0 5px;
         padding: 5px;
     }
 }
