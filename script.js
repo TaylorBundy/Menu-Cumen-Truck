@@ -371,7 +371,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         });
+    } else if (['bebidas', 'Cumen-Truck/bebidas'].some(path => window.location.pathname.includes(path))) {
+        //
     }
+        //
     }
 });
 //definimos la funcion que verifica si un componente tiene transformacion
