@@ -191,7 +191,7 @@ main {
 .nodo-img-item img {
     position: relative;
     width: 20%;
-    animation: heartbeat 1.5s ease-in-out 10;
+    /* animation: heartbeat 1.5s ease-in-out 10; */
 }
 /* #myBtn {
     display: none; Hidden by default
